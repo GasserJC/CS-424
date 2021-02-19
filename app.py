@@ -11,45 +11,33 @@ def V1():
     PCB.append( PCB1(0, 0) )
     create1(PCB, 0)
     print(PCB)
-    time.sleep(4)
+    time.sleep(1)
     create1(PCB, 0)
     print(PCB)
-    time.sleep(4)
+    time.sleep(1)
     create1(PCB, 2)
     print(PCB)
-    time.sleep(4)
+    time.sleep(1)
     create1(PCB, 0)
     print(PCB)
     destroy1(PCB, 0)
+    print("final")
     print(PCB)
 
-def V2():
-    PCB = []
-    PCB.append( PCB2(0) )
-    create2(0)
-    create2(0)
-    create2(2)
-    create2(0)
-    destroy2(0)
-
 def create1( pcb, p ):
-    pcb.append(PCB1(p, (len(pcb)-1))
-    pcb[p].create(len(pcb) - 1)
+    pcb.append( PCB1(p, (len(pcb) )) )
+    pcb[p].create( len(pcb)-1 )
 
 def destroy1( pcb, p ):
-   arr = pcb[p].destroy()
-   for process in pcb:
-       if process in arr:
-           del process
-
-def create2( p ):
-    PCB[len(PCB)] = PCB2(p)
-    p.create(len(PCB))
-
-def destroy2( p ):
-    arr = p.destroy()
-    for process in arr:
-        PCB.remove(process)
-
-
+    arr = pcb[p].destroy()
+    tmp = []
+    print(arr)
+    ix = 0
+    for process in pcb:
+        if process.processName in arr:
+           tmp.append(ix)
+        ix += 1
+    tmp.reverse()
+    for index in tmp:
+        pcb.pop(index)
 V1()
