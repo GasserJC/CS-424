@@ -15,5 +15,7 @@ class PCB1:
 			node = children.nodeat(i)
 			if(node.value == p):
 				children.remove(children.nodeat(i))
+				return true
+		return false
 
 
