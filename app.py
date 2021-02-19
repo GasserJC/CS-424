@@ -5,23 +5,19 @@ import PCB_V2
 from PCB_V1 import PCB1
 from PCB_V2 import PCB2
 
-
-def V1():
+def v1():
     PCB = []
     PCB.append( PCB1(0, 0) )
     create1(PCB, 0)
     print(PCB)
-    time.sleep(1)
     create1(PCB, 0)
     print(PCB)
     time.sleep(1)
     create1(PCB, 2)
     print(PCB)
-    time.sleep(1)
     create1(PCB, 0)
     print(PCB)
     destroy1(PCB, 0)
-    print("final")
     print(PCB)
 
 def create1( pcb, p ):
@@ -40,4 +36,4 @@ def destroy1( pcb, p ):
     tmp.reverse()
     for index in tmp:
         pcb.pop(index)
-V1()
+v1()
