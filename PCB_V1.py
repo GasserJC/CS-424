@@ -8,14 +8,14 @@ class PCB1:
 		self.children = sllist([])
 	
 	def create(self, p):
-        	children.append(p)
+        	self.children.append(p)
 	
 	def destroy(self, p):
-		for i in range(0, children.size()):
-			node = children.nodeat(i)
+		for i in range(0, self.children.size()):
+			node = self.children.nodeat(i)
 			if(node.value == p):
-				children.remove(children.nodeat(i))
-				return true
-		return false
+				self.children.remove(self.children.nodeat(i))
+				return True
+		return False
 
 
