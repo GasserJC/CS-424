@@ -5,6 +5,7 @@ import PCB_V2
 from PCB_V1 import PCB1
 from PCB_V2 import PCB2
 
+global procN
 procN = 0
 
 def v1():
