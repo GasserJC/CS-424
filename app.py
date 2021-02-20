@@ -5,7 +5,6 @@ import PCB_V2
 from PCB_V1 import PCB1
 from PCB_V2 import PCB2
 
-global procN
 procN = 0
 
 def v1():
@@ -23,6 +22,7 @@ def v1():
     print(PCB)
 
 def create1( pcb, p ):
+    global procN
     procN += 1
     pcb.append( PCB1(p, procN))
     pcb[p].create( procN )
