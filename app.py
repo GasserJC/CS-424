@@ -5,11 +5,10 @@ import PCB_V2
 from PCB_V1 import PCB1
 from PCB_V2 import PCB2
 
-procN = 0
 
 def v1():
     PCB = []
-    PCB.append( PCB1(0, procN) )
+    PCB.append( PCB1(0, 0) )
     create1(PCB, 0)
     print(PCB)
     create1(PCB, 0)
@@ -22,10 +21,8 @@ def v1():
     print(PCB)
 
 def create1( pcb, p ):
-    global procN
-    procN += 1
-    pcb.append( PCB1(p, procN))
-    pcb[p].create( procN )
+    pcb.append( PCB1(p, len(pcb)))
+    pcb[p].create( len(pcb) - 1 )
 
 
 def destroy1( pcb, p ):
