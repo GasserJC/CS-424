@@ -39,6 +39,6 @@ def destroy1( pcb, p ):
         ix += 1
     tmp.reverse()
     for index in tmp:
-        pcb[index] = -1
+        pcb.pop(index)
 
 v1()
