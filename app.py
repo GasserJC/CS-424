@@ -10,7 +10,7 @@ def v1():
     PCB = []
     PCB.append( PCB1(0, 0) )
     create1(PCB, 0)
-    print(PCB)
+    print(PCB[0].processName)
     create1(PCB, 0)
     print(PCB)
     create1(PCB, 2)
