@@ -17,12 +17,13 @@ def v1():
     print(PCB)
     create1(PCB, 0)
     print(PCB)
+    destroy1(PCB, 0)
     for proc in PCB:
         print(proc)
         print(proc.parent)
         print(proc.children)
-    destroy1(PCB, 0)
     print(PCB)
+
 
 def v2():
     PCB = []
@@ -54,7 +55,7 @@ def create1( pcb, p ):
 
 
 def destroy1( pcb, p ):
-    arr = pcb[p].destroy(p, [])
+    arr = pcb[p].destroy(pcb, p, [])
     tmp = []
     print(arr)
     ix = 0
