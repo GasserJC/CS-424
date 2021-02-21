@@ -72,17 +72,17 @@ v2()
 def test_time():
     print("------------          testing time for dynamic memory allocation version        -----------")
     start1 = time.time()
-    for i in range(0, 1000):
+    for i in range(0, 100000):
         v1_clear()
     end1 = time.time()
-    print("version 1 time: " + str(end1 - start1))
+    print("version 1 time to execute 100,000 times: " + str(end1 - start1))
 
     print("------------          testing time for dynamic programming version         -----------")
     start2 = time.time()
-    for i in range(0, 1000):
+    for i in range(0, 100000):
         v2_clear()
     end2 = time.time()
-    print("version 2 time: " + str(end2 - start2))
+    print("version 2 time to execute 100,000 times: " + str(end2 - start2))
 
 
 def v1_clear():
