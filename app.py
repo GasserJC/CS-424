@@ -63,6 +63,7 @@ def destroy2(PCB, p):
     p.destroy(PCB, p)
     p.alive = True
     ix = 0
+    print("yeh")
     for proc in PCB:
         print(proc)
         print(proc.alive)
