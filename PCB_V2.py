@@ -26,5 +26,5 @@ class PCB2:
         if(p.ys != -1):
             self.destroy(pcb, pcb[p.ys])
         p.alive = False
-        
+        self.alive = False
 
