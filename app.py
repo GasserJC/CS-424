@@ -38,7 +38,7 @@ def v2():
         print("older sibling: " + str(proc.os))
     destroy2(PCB, PCB[0])
     print("post-deletion")
-    #print(PCB)
+    print(PCB)
 
 def create1( pcb, p ):
     pcb.append( PCB1(p, len(pcb)))
@@ -64,6 +64,7 @@ def destroy2(PCB, p):
     ix = 0
     for proc in PCB:
         print(proc)
+        print(ix)
         if(proc.alive == False):
             PCB.pop(ix)
         ix += 1
