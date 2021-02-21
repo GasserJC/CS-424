@@ -17,6 +17,11 @@ def v1():
     print(PCB)
     create1(PCB, 0)
     print(PCB)
+    for proc in PCB:
+        print(proc)
+        print(proc.parent)
+        print(proc.children)
+        time.sleep(3)
     destroy1(PCB, 0)
     print(PCB)
 
