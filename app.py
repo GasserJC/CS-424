@@ -21,7 +21,6 @@ def v1():
         print(proc)
         print(proc.parent)
         print(proc.children)
-        time.sleep(3)
     destroy1(PCB, 0)
     print(PCB)
 

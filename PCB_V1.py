@@ -12,12 +12,12 @@ class PCB1:
         self.children.append(p)
         print(self.children)
 
-    def destroy(self, p, arr):
-        arr.append(p.processName)
+    def destroy(self, pcb, p, arr):
+        arr.append(pcb[p].processName)
+        for proc in pcb[p].children:
+            pcb[p].destroy(pcb[proc], arr)
         for proc in p.children:
-            p.destroy(proc, arr)
-        for proc in p.children:
-            p.children.pop()
+            pcb[p].children.pop()
         return arr
         '''
         arr = [p]
