@@ -92,7 +92,7 @@ def test_time():
         v1_clear()
     end1 = time.time()
     print("version 1 time to execute 100,000 times: " + str(end1 - start1))
-
+    print("")
     print("------------          testing time for dynamic programming version         -----------")
     start2 = time.time()
     for i in range(0, 100000):
