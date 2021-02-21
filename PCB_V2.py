@@ -28,5 +28,5 @@ class PCB2:
             print(p)
             p.destroy(pcb, pcb[p.ys])
         p.alive = False
-        print(p)
+        print(str(p) + " is dead")
 
