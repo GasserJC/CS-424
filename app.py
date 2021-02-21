@@ -28,8 +28,8 @@ def v2():
     PCB[2].create(PCB, 2)
     PCB[0].create(PCB, 0)
     print("--- pre-deletion ---")
-    print("NOTE!!!!!!!!!")
-    print("-1 is equivilent to NA")
+    print("NOTE: -1 is equivilent to NA")
+    print("")
     for proc in PCB:
         print("process: " + str(proc))
         print("parent: " + str(proc.p))
@@ -37,6 +37,7 @@ def v2():
         print("younger sibling: " + str(proc.ys))
         print("older sibling: " + str(proc.os))
     destroy2(PCB, PCB[0])
+    print("")
     print("post-deletion")
     print(PCB)
 
@@ -118,4 +119,4 @@ def v2_clear():
     PCB[0].create(PCB, 0)
     PCB[0].destroy(PCB, PCB[0])
 
-#test_time()
+test_time()
