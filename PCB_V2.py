@@ -1,6 +1,6 @@
 class PCB2:
     def __init__(self, parent, fc, ys, os):
-        self.parent = parent
+        self.p = p
         self.fc = fc
         self.ys = ys
         self.os = os

@@ -27,7 +27,11 @@ def v2():
     PCB[0].create(PCB, 0)
     PCB[2].create(PCB, 2)
     PCB[0].create(PCB, 0)
+    for proc in PCB:
+        print(proc)
     PCB[0].destroy(PCB, 0)
+    for proc in PCB:
+        print(proc)
 
 def create1( pcb, p ):
     pcb.append( PCB1(p, len(pcb)))
@@ -47,3 +51,8 @@ def destroy1( pcb, p ):
     for index in tmp:
         pcb.pop(index)
 
+print("----------------         verison 1           ----------------")
+v1()
+
+print("----------------         version 2           ----------------")
+v2()
