@@ -38,13 +38,6 @@ def v2():
         print("older sibling: " + str(proc.os))
     destroy2(PCB, PCB[0])
     print("post-deletion")
-    for proc in PCB:
-        if(proc.alive):
-            print(proc)
-            print(proc.p)
-            print(proc.fc)
-            print(proc.ys)
-            print(proc.os)
     print(PCB)
 
 def create1( pcb, p ):
@@ -67,7 +60,7 @@ def destroy1( pcb, p ):
 
 def destroy2(PCB, p):
     p.destroy(PCB, p)
-    p.alve = True
+    p.alive = True
     ix = 0
     for proc in PCB:
         print(".")
