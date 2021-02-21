@@ -70,8 +70,6 @@ v1()
 print("----------------         version 2           ----------------")
 v2()
 
-test_time()
-
 def test_time():
     print("------------          testing time for dynamic memory allocation version        -----------")
     start1 = time.time()
@@ -105,3 +103,5 @@ def v2_clear():
     PCB[2].create(PCB, 2)
     PCB[0].create(PCB, 0)
     PCB[0].destroy(PCB, PCB[0])
+
+test_time()
