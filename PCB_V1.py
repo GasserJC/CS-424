@@ -15,9 +15,17 @@ class PCB1:
     def destroy(self, p):
         arr = [p]
         for i in range(0, self.children.size):
+            arr.append(self.children.nodeat(i).value)
+            self.destroy(self.children.nodeat(i))
+        for process in self.children:
+            self.children.pop()
+        return arr
+        '''
+        arr = [p]
+        for i in range(0, self.children.size):
             node = self.children.nodeat(i)
             arr.append(node.value)
         for process in self.children:
             self.children.pop()
         return arr
-
+        '''
