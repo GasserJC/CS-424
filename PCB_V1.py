@@ -13,6 +13,13 @@ class PCB1:
         print(self.children)
 
     def destroy(self, p, arr):
+        arr.append(p.processName)
+        for proc in p.children:
+            p.destroy(proc, arr)
+        for proc in p.children:
+            p.children.pop()
+        return arr
+        '''
         arr = [p]
         for i in range(0, self.children.size):
             node = self.children.nodeat(i)
@@ -20,3 +27,4 @@ class PCB1:
         for process in self.children:
             self.children.pop()
         return arr
+        '''
