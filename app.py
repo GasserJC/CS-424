@@ -10,13 +10,14 @@ def v1():
     PCB = []
     PCB.append( PCB1(0, 0) )
     create1(PCB, 0)
-    print(PCB[0].processName)
     create1(PCB, 0)
     print(PCB)
     create1(PCB, 2)
     print(PCB)
     create1(PCB, 0)
     print(PCB)
+    for proc in PCB:
+        print(proc.processName)
     destroy1(PCB, 0)
     for proc in PCB:
         print(proc)
