@@ -21,6 +21,7 @@ class PCB2:
             pcb[child].ys = len(pcb)-1
 
     def destroy(self, pcb, p):
+        print(p)
         if(p.fc != -1):
             self.destroy(pcb, pcb[p.fc])
         if(p.ys != -1):
