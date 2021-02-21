@@ -64,10 +64,8 @@ def destroy2(PCB, p):
     p.alive = True
     ix = 0
     for proc in PCB:
-        print(".")
-        if(not proc.alive):
-            PCB.pop(ix)
-        ix += 1
+        print(proc)
+        print(proc.alive)
 
 print("----------------         verison 1           ----------------")
 print("")
