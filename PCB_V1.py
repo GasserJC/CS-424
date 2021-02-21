@@ -20,12 +20,3 @@ class PCB1:
         for proc in pcb[p].children:
             pcb[p].children.pop()
         return arr
-        '''
-        arr = [p]
-        for i in range(0, self.children.size):
-            node = self.children.nodeat(i)
-            arr.append(node.value)
-        for process in self.children:
-            self.children.pop()
-        return arr
-        '''
