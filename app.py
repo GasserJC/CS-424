@@ -69,3 +69,6 @@ v1()
 
 print("----------------         version 2           ----------------")
 v2()
+
+def test_time():
+    print("------------          testing time          -----------")
