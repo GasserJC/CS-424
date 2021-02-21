@@ -73,9 +73,16 @@ def destroy2(PCB, p):
         ix += 1
 
 print("----------------         verison 1           ----------------")
+print("")
+print("")
 v1()
 
+
+print("")
+print("")
 print("----------------         version 2           ----------------")
+print("")
+print("")
 v2()
 
 def test_time():
