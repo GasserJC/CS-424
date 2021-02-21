@@ -22,8 +22,11 @@ class PCB2:
 
     def destroy(self, pcb, p):
         if(p.fc != -1):
+            print(p)
             p.destroy(pcb, pcb[p.fc])
         if(p.ys != -1):
+            print(p)
             p.destroy(pcb, pcb[p.ys])
         p.alive = False
+        print(p)
 
