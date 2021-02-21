@@ -13,7 +13,8 @@ class PCB1:
         print(self.children)
 
     def destroy(self, pcb, p, arr):
-        arr.append(pcb[p].processName)
+        name = int(pcb[p].processName)
+        arr.append(name)
         for proc in pcb[p].children:
             pcb[p].destroy(pcb, pcb[proc], arr)
         for proc in p.children:
