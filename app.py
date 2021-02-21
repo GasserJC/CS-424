@@ -34,7 +34,7 @@ def v2():
         print(proc.fc)
         print(proc.ys)
         print(proc.os)
-    PCB[0].destroy(PCB, 0)
+    PCB[0].destroy(PCB, PCB[0])
     print("post-deletion")
     for proc in PCB:
         if(proc.alive):

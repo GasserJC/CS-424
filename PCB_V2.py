@@ -21,11 +21,11 @@ class PCB2:
             pcb[child].ys = len(pcb)-1
 
     def destroy(self, pcb, p):
-        if(pcb[p].fc != -1):
-            self.destroy(pcb, pcb[p].fc)
-        if(pcb[p].ys != -1):
-            self.destroy(pcb, pcb[p].ys)
-        pcb[p].p = -1
-        pcb[p].os = -1
+        if(p.fc != -1):
+            self.destroy(pcb, pcb[p.fc])
+        if(p.ys != -1):
+            self.destroy(pcb, pcb[p.ys])
+        self.p = -1
+        self.os = -1
         self.alive = False
 
