@@ -25,5 +25,6 @@ class PCB2:
             self.destroy(pcb, pcb[p.fc])
         if(p.ys != -1):
             self.destroy(pcb, pcb[p.ys])
-        del pcb[p]
+        p.alive = False
+        del p
 
