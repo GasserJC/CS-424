@@ -4,7 +4,7 @@ class PCB2:
         self.fc = fc
         self.ys = ys
         self.os = os
-        self.alive = 1
+        self.alive = True
 
     def create(self, pcb, p):
         #if first child of process p
@@ -27,5 +27,5 @@ class PCB2:
             self.destroy(pcb, pcb[p].ys)
         pcb[p].p = -1
         pcb[p].os = -1
-        self.alive = 0
+        self.alive = False
 
