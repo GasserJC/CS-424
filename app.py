@@ -36,7 +36,7 @@ def v2():
         print("first child: " + str(proc.fc))
         print("younger sibling: " + str(proc.ys))
         print("older sibling: " + str(proc.os))
-    PCB[0].destroy(PCB, PCB[0])
+    destroy2(PCB, PCB[0])
     print("post-deletion")
     for proc in PCB:
         if(proc.alive):
@@ -63,6 +63,12 @@ def destroy1( pcb, p ):
     tmp.reverse()
     for index in tmp:
         pcb.pop(index)
+
+def destroy2(PCB, p):
+    p.destroy(PCB, p)
+    for proc in PCB:
+        if(not proc.alive):
+            del proc
 
 print("----------------         verison 1           ----------------")
 v1()
