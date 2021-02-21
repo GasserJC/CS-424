@@ -68,6 +68,7 @@ def destroy2(PCB, p):
     p.destroy(PCB, p)
     ix = 0
     for proc in PCB:
+        print(".")
         if(not proc.alive):
             PCB.pop(ix)
         ix += 1
