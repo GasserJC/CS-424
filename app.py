@@ -30,6 +30,7 @@ def v2():
     print("--- pre-deletion ---")
     print("NOTE!!!!!!!!!")
     print("-1 is equivilent to NA")
+    print(PCB)
     for proc in PCB:
         print("process: " + str(proc))
         print("parent: " + str(proc.p))
