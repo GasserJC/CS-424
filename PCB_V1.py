@@ -12,11 +12,11 @@ class PCB1:
         self.children.append(p)
         print(self.children)
 
-    def destroy(self, p):
+    def destroy(self, p, arr):
         arr = [p]
         for i in range(0, self.children.size):
             arr.append(self.children.nodeat(i).value)
-            self.destroy(self.children.nodeat(i))
+            self.destroy(self.children.nodeat(i), arr)
         for process in self.children:
             self.children.pop()
         return arr
