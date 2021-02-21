@@ -30,6 +30,11 @@ def v2():
     print("pre-deletion")
     for proc in PCB:
         print(proc)
+        print(proc.p)
+        print(proc.fc)
+        print(proc.ys)
+        print(proc.os)
+        time.sleep(5)
     PCB[0].destroy(PCB, 0)
     print("pre-deletion")
     for proc in PCB:
