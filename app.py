@@ -27,7 +27,6 @@ def v2():
     PCB[0].create(PCB, 0)
     PCB[2].create(PCB, 2)
     PCB[0].create(PCB, 0)
-    PCB[0].create(PCB, 0)
     print("--- pre-deletion ---")
     print("NOTE!!!!!!!!!")
     print("-1 is equivilent to NA")
@@ -63,7 +62,6 @@ def destroy2(PCB, p):
     p.destroy(PCB, p)
     p.alive = True
     ix = 0
-    print("yeh")
     for proc in PCB:
         print(proc)
         if(proc.alive == False):
