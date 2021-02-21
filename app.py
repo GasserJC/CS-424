@@ -66,7 +66,9 @@ def destroy2(PCB, p):
     print("yeh")
     for proc in PCB:
         print(proc)
-        print(proc.alive)
+        if(proc.alive == False):
+            PCB.pop(ix)
+        ix += 1
 
 print("----------------         verison 1           ----------------")
 print("")
