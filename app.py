@@ -34,16 +34,16 @@ def v2():
         print(proc.fc)
         print(proc.ys)
         print(proc.os)
-        time.sleep(5)
     PCB[0].destroy(PCB, 0)
     print("post-deletion")
     for proc in PCB:
-        print(proc)
-        print(proc.p)
-        print(proc.fc)
-        print(proc.ys)
-        print(proc.os)
-        time.sleep(5)
+        if(proc.alive):
+            print(proc)
+            print(proc.p)
+            print(proc.fc)
+            print(proc.ys)
+            print(proc.os)
+            time.sleep(5)
 
 def create1( pcb, p ):
     pcb.append( PCB1(p, len(pcb)))
