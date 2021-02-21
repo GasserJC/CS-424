@@ -45,6 +45,7 @@ def v2():
             print(proc.fc)
             print(proc.ys)
             print(proc.os)
+    print(PCB)
 
 def create1( pcb, p ):
     pcb.append( PCB1(p, len(pcb)))
