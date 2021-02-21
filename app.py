@@ -54,7 +54,6 @@ def create1( pcb, p ):
 def destroy1( pcb, p ):
     arr = pcb[p].destroy(pcb, p, [])
     tmp = []
-    print(arr)
     ix = 0
     for process in pcb:
         if process.processName in arr:
