@@ -86,6 +86,8 @@ print("")
 v2()
 
 def test_time():
+    print("")
+    print("")
     print("------------          testing time for dynamic memory allocation version        -----------")
     start1 = time.time()
     for i in range(0, 100000):
