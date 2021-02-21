@@ -118,4 +118,4 @@ def v2_clear():
     PCB[0].create(PCB, 0)
     PCB[0].destroy(PCB, PCB[0])
 
-test_time()
+#test_time()
