@@ -67,6 +67,7 @@ def destroy1( pcb, p ):
 
 def destroy2(PCB, p):
     p.destroy(PCB, p)
+    p.alve = True
     ix = 0
     for proc in PCB:
         print(".")
