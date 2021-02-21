@@ -10,7 +10,6 @@ class PCB1:
 
     def create(self, p):
         self.children.append(p)
-        print(self.children)
 
     def destroy(self, pcb, p, arr):
         name = int(pcb[p].processName)

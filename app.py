@@ -16,13 +16,7 @@ def v1():
     print(PCB)
     create1(PCB, 0)
     print(PCB)
-    for proc in PCB:
-        print(proc.processName)
     destroy1(PCB, 0)
-    for proc in PCB:
-        print(proc)
-        print(proc.parent)
-        print(proc.children)
     print(PCB)
 
 
