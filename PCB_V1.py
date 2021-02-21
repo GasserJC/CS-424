@@ -17,7 +17,7 @@ class PCB1:
         arr.append(name)
         for proc in pcb[p].children:
             pcb[p].destroy(pcb, proc, arr)
-        for proc in p.children:
+        for proc in pcb[p].children:
             pcb[p].children.pop()
         return arr
         '''
