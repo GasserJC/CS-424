@@ -16,7 +16,7 @@ class PCB1:
         name = int(pcb[p].processName)
         arr.append(name)
         for proc in pcb[p].children:
-            pcb[p].destroy(pcb, pcb[proc], arr)
+            pcb[p].destroy(pcb, proc, arr)
         for proc in p.children:
             pcb[p].children.pop()
         return arr
