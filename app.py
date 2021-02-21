@@ -30,7 +30,6 @@ def v2():
     print("--- pre-deletion ---")
     print("NOTE!!!!!!!!!")
     print("-1 is equivilent to NA")
-    print(PCB)
     for proc in PCB:
         print("process: " + str(proc))
         print("parent: " + str(proc.p))
@@ -55,6 +54,7 @@ def create1( pcb, p ):
 
 def destroy1( pcb, p ):
     arr = pcb[p].destroy(pcb, p, [])
+    arr.remove(p)
     tmp = []
     ix = 0
     for process in pcb:
