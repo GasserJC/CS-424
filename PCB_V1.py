@@ -12,8 +12,8 @@ class PCB1:
         self.children.append(p)
         print(self.children)
 
-    def destroy(self):
-        arr = []
+    def destroy(self, p):
+        arr = [p]
         for i in range(0, self.children.size):
             node = self.children.nodeat(i)
             arr.append(node.value)

@@ -20,13 +20,22 @@ def v1():
     destroy1(PCB, 0)
     print(PCB)
 
+def v2():
+    PCB = []
+    PCB.append( PCB2(-1, -1, -1, -1) )
+    PCB[0].create(PCB, 0)
+    PCB[0].create(PCB, 0)
+    PCB[2].create(PCB, 2)
+    PCB[0].create(PCB, 0)
+    PCB[0].destroy(PCB, 0)
+
 def create1( pcb, p ):
     pcb.append( PCB1(p, len(pcb)))
     pcb[p].create( len(pcb) - 1 )
 
 
 def destroy1( pcb, p ):
-    arr = pcb[p].destroy()
+    arr = pcb[p].destroy(p)
     tmp = []
     print(arr)
     ix = 0
@@ -38,4 +47,3 @@ def destroy1( pcb, p ):
     for index in tmp:
         pcb.pop(index)
 
-v1()
