@@ -10,7 +10,7 @@ def printPCB(pcb):
         par = " parent: "
         if(proc.parent != -1):
             par += str(proc.parent)
-        print(proc.processName + par)
+        print(str(proc.processName) + par)
 
 def v1():
     PCB = []
