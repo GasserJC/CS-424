@@ -53,7 +53,12 @@ def v2():
     destroy2(PCB, PCB[0])
     print("")
     print("post-deletion")
-    print(PCB)
+    for proc in PCB:
+        print("process: " + str(proc))
+        print("parent: " + str(proc.p))
+        print("first child: " + str(proc.fc))
+        print("younger sibling: " + str(proc.ys))
+        print("older sibling: " + str(proc.os))
 
 def create1( pcb, p ):
     pcb.append( PCB1(p, len(pcb)))
