@@ -7,8 +7,8 @@ from PCB_V2 import PCB2
 
 def printPCB(pcb):
     for proc in pcb:
-        print(pcb[proc].processName)
-        
+        print(proc.processName)
+
 def v1():
     PCB = []
     PCB.append( PCB1(0, 0) )
