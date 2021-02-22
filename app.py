@@ -9,15 +9,23 @@ from PCB_V2 import PCB2
 def v1():
     PCB = []
     PCB.append( PCB1(0, 0) )
+    print("create(0)")
+    printPCB(PCB)
     create1(PCB, 0)
+    print("create(0)")
+    printPCB(PCB)
     create1(PCB, 0)
-    print(PCB)
+    print("create(0)")
+    printPCB(PCB)
     create1(PCB, 2)
-    print(PCB)
+    print("create(2)")
+    printPCB(PCB)
     create1(PCB, 0)
-    print(PCB)
+    print("create(0)")
+    printPCB(PCB)
     destroy1(PCB, 0)
-    print(PCB)
+    print("destroy(0)")
+    printPCB(PCB)
 
 
 def v2():
@@ -118,5 +126,9 @@ def v2_clear():
     PCB[2].create(PCB, 2)
     PCB[0].create(PCB, 0)
     PCB[0].destroy(PCB, PCB[0])
+
+def printPCB(pcb):
+    for proc in pcb:
+        print(pcb[proc].processName)
 
 test_time()
