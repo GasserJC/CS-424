@@ -37,10 +37,15 @@ def v1():
 def v2():
     PCB = []
     PCB.append( PCB2(-1, -1, -1, -1) )
+    print("create(0)")
     PCB[0].create(PCB, 0)
+    print("create(0)")
     PCB[0].create(PCB, 0)
+    print("create(0)")
     PCB[2].create(PCB, 2)
+    print("create(2)")
     PCB[0].create(PCB, 0)
+    print("create(0)")
     print("--- pre-deletion ---")
     print("NOTE: -1 is equivilent to NA")
     print("")
