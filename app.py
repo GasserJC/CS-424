@@ -1,4 +1,18 @@
 #This file will be testing both the Process controll block types.
+try:
+    import time
+    import PCB_V1
+    import PCB_V2
+    from PCB_V1 import PCB1
+    from PCB_V2 import PCB2
+except:
+    print("")
+    print(" do not have llist lib ")
+    print(" run the following ")
+    print("    $  pip3 install llist     ")
+    print("")
+    exit()
+
 import time
 import PCB_V1
 import PCB_V2
