@@ -5,7 +5,10 @@ import PCB_V2
 from PCB_V1 import PCB1
 from PCB_V2 import PCB2
 
-
+def printPCB(pcb):
+    for proc in pcb:
+        print(pcb[proc].processName)
+        
 def v1():
     PCB = []
     PCB.append( PCB1(0, 0) )
@@ -127,8 +130,6 @@ def v2_clear():
     PCB[0].create(PCB, 0)
     PCB[0].destroy(PCB, PCB[0])
 
-def printPCB(pcb):
-    for proc in pcb:
-        print(pcb[proc].processName)
+
 
 test_time()
