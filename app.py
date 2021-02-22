@@ -7,11 +7,14 @@ from PCB_V2 import PCB2
 
 def printPCB(pcb):
     for proc in pcb:
-        print(proc.processName)
+        par = " parent: "
+        if(proc.parent != -1):
+            par += proc.parent
+        print(proc.processName + par)
 
 def v1():
     PCB = []
-    PCB.append( PCB1(0, 0) )
+    PCB.append( PCB1(-1, 0) )
     print("create(0)")
     printPCB(PCB)
     create1(PCB, 0)
