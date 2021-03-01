@@ -1,8 +1,5 @@
 #ifndef PRODUCER
 #define PRODUCER
-
-class Producer{
-
-};
-
+ 
+ 
 #endif
