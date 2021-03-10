@@ -8,12 +8,12 @@ const int N = 100;
 const int K = 20;
 const int T = 4;
 
-void mainThread(int* buffer, int k, int t){
+void mainThread(int buffer[], int k, int t){
     // start producer
     // start consumer
 
-    std::thread prod(&Producer::produce, &buffer, k, t);
-    std::thread cons(&Consumer::consume, &buffer, k, t);
+    std::thread prod(&Producer::produce, std::ref(buffer), k, t);
+    std::thread cons(&Consumer::consume, std::ref(buffer), k, t);
 
     prod.join();
     cons.join();
@@ -28,7 +28,7 @@ int main(){
     }
 
     //Call Main Thread
-    std::thread Host (mainThread, &buffer, K, T);
+    std::thread Host (mainThread, std::ref(buffer), K, T);
     std::cout << "Started Main Thread." << std::endl;
     Host.join();
     std::cout << "Finished Main Thread." << std::endl;

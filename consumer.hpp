@@ -5,7 +5,7 @@ class Consumer{
     public:
         Consumer(){}
 
-        void consume(int* buffer, int k, int t);
+        void consume(int buffer[], int k, int t);
 };
 
 #endif
