@@ -3,6 +3,17 @@
 #include <iostream>
 #include <thread>  
 
+void mainThread(int* buffer, int k, int t){
+    // start producer
+    // start consumer
+
+    std::thread prod(&Producer::produce, &buffer, k, t);
+    std::thread cons(&Consumer::consume, &buffer, k, t);
+
+    prod.join();
+    cons.join();
+}
+
 int main(){
     
     const int n = 100;
@@ -23,13 +34,3 @@ int main(){
     return 1;
 }
 
-void mainThread(int* buffer, int k, int t){
-    // start producer
-    // start consumer
-
-    std::thread prod(&Producer::produce, &buffer, k, t);
-    std::thread cons(&Consumer::consume, &buffer, k, t);
-
-    prod.join();
-    cons.join();
-}
