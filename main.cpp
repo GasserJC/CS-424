@@ -3,22 +3,23 @@
 #include <iostream>
 #include <thread>  
 
-void mainThread(int* buffer, int k, int t){
+    
+const int n = 100;
+const int k = 20;
+const int t = 4;
+
+void mainThread(int* buffer, int kk, int tt){
     // start producer
     // start consumer
 
-    std::thread prod(&Producer::produce, &buffer, k, t);
-    std::thread cons(&Consumer::consume, &buffer, k, t);
+    std::thread prod(&Producer::produce, &buffer, kk, tt);
+    std::thread cons(&Consumer::consume, &buffer, kk, tt);
 
     prod.join();
     cons.join();
 }
 
 int main(){
-    
-    const int n = 100;
-    const int k = 20;
-    const int t = 4;
     int buffer [n];
 
     //initialize the buffer
