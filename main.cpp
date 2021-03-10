@@ -9,7 +9,6 @@ const int K = 20;
 const int T = 4;
 
 void foo(int* buffer, int k, int t){
-
 }
 
 void mainThread(int buffer[], int k, int t){
