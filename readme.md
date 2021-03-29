@@ -1,8 +1,6 @@
 General Instructions
 Write a multithreaded implementation of the Banker's algorithm. In this implementation, you will create a model of a multiprocessing computer system where several processes are requesting and releasing random amounts of resources at random times.
 
- 
-
 Command-line arguments
 Your program should accept two command-line arguments.
 
