@@ -15,13 +15,13 @@ int main(){
             Setup[i] = tmpLine;
             i++;
         }
-    } 
-    catch (_exception exp) {
+    }
+    catch (int exp) {
         std::cout << "Error With Test Data File";
         return 1;
     }
+    std::cout << Setup[0];
 }
-
 //Import Data
 
 //Init Data
