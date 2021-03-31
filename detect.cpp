@@ -40,7 +40,7 @@ bool HasSafeState(std::string data[]){
        }
 
        for(int i = 0; i < resources; i++){
-              std::cout << std::endl << Available[2*i];
+              std::cout << std::endl << Available[i];
        }
        return true;
 }
