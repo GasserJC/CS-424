@@ -4,11 +4,11 @@
 
 static std::string Setup[15];
 
-int main(int argc, char** type ,char** file){
+int main(int argc, char* args[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
-    std::cout << type << std::endl << file;
+    std::cout << args[0] << std::endl << args[1];
     //Import Data 
     TestData.open("./setup.txt");
     try{
