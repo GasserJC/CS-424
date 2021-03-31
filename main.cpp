@@ -10,7 +10,7 @@ int main(char* type, char*file){
     int i = 0;
     std::cout << type << std::endl << file;
     //Import Data 
-    TestData.open("./file.txt");
+    TestData.open("./setup.txt");
     try{
         while( std::getline(TestData, tmpLine) ){
             Setup[i] = tmpLine;
