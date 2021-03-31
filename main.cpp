@@ -4,15 +4,15 @@
 
 static std::string Setup[15];
 
-int main(int argc, char* args[]){
+int main(int argc, std::string* args[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
-
+    std::cout << args[2];
     //args[1] == manual or auto, args[2] == file input
 
     //Import Data 
-    TestData.open("./" + args[2]);
+    TestData.open("./setup.txt");
     try{
         while( std::getline(TestData, tmpLine) ){
             Setup[i] = tmpLine;
