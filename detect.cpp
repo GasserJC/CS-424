@@ -46,7 +46,7 @@ bool HasSafeState(std::string data[]){
        return true;
 }
 
-
+/*
 int * TextToIntArr(int start, int end, std::string data[]){
        for(int a = start; a <= end; a++){
               std::string tmp = "";
@@ -60,4 +60,5 @@ int * TextToIntArr(int start, int end, std::string data[]){
               }
        }
 }
+*/
 #endif
