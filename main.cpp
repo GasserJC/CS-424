@@ -10,10 +10,9 @@ int main(int argc, char* args[]){
     int i = 0;
 
     //Get CMD Line argument
-    //std::string Type(args[1]);
-    //std::string FilePath(args[2]);
-std::string Type = "manual";
-std::string FilePath = "test.txt";
+    std::string Type(args[1]);
+    std::string FilePath(args[2]);
+
     //args[1] == manual or auto, args[2] == file input
 
     //Import Data 
