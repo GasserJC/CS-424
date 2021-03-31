@@ -8,15 +8,10 @@ int main(int argc, char* args[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
-    std::string Type;
-    std::string FilePath;
+
     //Get CMD Line argument
-    std::vector<std::string> allArgs(args, args + argc);
-    if(argc==3) {
-        Type = allArgs[1];
-        FilePath = allArgs[2];
-        std::cout << "got " << Type << ' ' << FilePath << '\n';
-    }
+    std::string Type(args[1]);
+    std::string FilePath(args[2]);
 
     //args[1] == manual or auto, args[2] == file input
 
