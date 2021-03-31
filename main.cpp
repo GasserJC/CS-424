@@ -76,6 +76,7 @@ int main(int argc, char* args[]){
         //Base
             //Quit
     } catch (...) {
+        std::cout << std::endl << "Data File Error!"  << std::endl;
         return -1;
     }
 }
