@@ -21,7 +21,7 @@ int * TextToIntArr(int line, int width, std::string data[]){
        
        //get data, and only grab numbers (not spaces or null)
        while(num < width){
-              if(data[line][i] != ' ' && ( data[line][i] == '\0')){
+              if(data[line][i] != ' ' && ( data[line][i] != '\0')){
                      tmp += data[line][i];
                      std::cout << std::endl << tmp << std::endl;
                      i++;
