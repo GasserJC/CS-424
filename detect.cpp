@@ -13,14 +13,26 @@ def HasSafeState():
 */
 
 bool HasSafeState(std::string data[]){
+       //init resources and processes
        int resources = (int)data[0][0] - 48;
        int processes = (int)data[1][0] - 48;
        int * Max = new int [processes*resources];
+       int * Allocation = new int [processes*resources];
+       
+       //init max
        for(int i = 0; i < processes; i++){
               for(int j = 0; j < resources; j++){
                      int tmp = Max[i*resources + j] = (int)data[5+i][2*j] - 48;
               }
        }
+
+       //init allocation
+       for(int i = 0; i < processes; i++){
+              for(int j = 0; j < resources; j++){
+                     int tmp = Allocation[i*resources + j] = (int)data[11+i][2*j] - 48;
+              }
+       }
+
        for(int i = 0; i < 15; i++){
               std::cout << std::endl << Max[i];
        }
