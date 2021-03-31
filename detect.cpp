@@ -1,6 +1,7 @@
 #ifndef DETECT
 #define DETECT
 #include <string>
+#include <vector>
 
 /*
 def HasSafeState():
@@ -40,9 +41,23 @@ bool HasSafeState(std::string data[]){
        }
 
        for(int i = 0; i < resources; i++){
-              std::cout << std::endl << Available[i];
+              std::cout << std::endl << data[11][900];
        }
        return true;
 }
 
+
+int * TextToIntArr(int start, int end, std::string data[]){
+       for(int a = start; a <= end; a++){
+              std::string tmp = "";
+              int i = 0;
+              while(true){
+                     if(data[a][i] != ' ' && data[a][i] != ''){
+
+                     } else {
+                            break;
+                     }
+              }
+       }
+}
 #endif
