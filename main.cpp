@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include "detect.cpp"
+#include <stdio.h>
+#include <stdlib.h>
 
 static std::string Setup[15];
 
@@ -10,8 +12,13 @@ int main(int argc, char* args[]){
     int i = 0;
 
     //Get CMD Line argument
-    std::string Type(args[1]);
-    std::string FilePath(args[2]);
+    char *tmp = (char *)malloc(128);
+    int n=sprintf(tmp,args[1]);
+    std::string Type = tmp;
+
+    tmp = (char *)malloc(128);
+    n = sprintf(tmp,args[2]);
+    std::string FilePath = tmp;
 
     //args[1] == manual or auto, args[2] == file input
 
