@@ -33,6 +33,9 @@ int * TextToIntArr(int line, int width, std::string data[]){
 
 /*
 func HasSafeState():
+
+   getData
+
    For each process p in each resource R
            if( not (Allocation[p][R] <= Max[p][R]))
                   return false
@@ -40,7 +43,6 @@ func HasSafeState():
                   return false               
    return true
 */
-
 bool HasSafeState(std::string data[]){
        //init resources and processes
        int resources = (int)data[0][0] - 48;
@@ -65,13 +67,29 @@ bool HasSafeState(std::string data[]){
               }
        }
 
+       //init Available
        Available = TextToIntArr(3,3,data);
 
-       for(int i = 0; i < resources; i++){
-              std::cout << std::endl << Available[i];
-              std::cout << std::endl << Max[i];
-              std::cout << std::endl << Allocation[i];
+       //Perform Check
+       for(int p = 0; p < processes; p++){
+              for(int R = 0; R < resources; R++){
+                     if(Allocation[p*processes + R] > Max[p*processes + R]){
+                            return false;
+                     }
+              }
        }
+       /*
+       for(int R = 0; R < resources; R++){
+              int sum = 0;
+              for(int p = 0; p < processes; p++){
+                     sum += Allocation[p*processes + R];
+              }
+              sum += Available[R];
+              if(sum )
+
+              }
+       }
+       */
        return true;
 }
 
