@@ -8,9 +8,11 @@ int main(int argc, char* args[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
-    std::cout << args[1] << std::endl << args[2];
+
+    //args[1] == manual or auto, args[2] == file input
+
     //Import Data 
-    TestData.open("./setup.txt");
+    TestData.open("./" + args[2]);
     try{
         while( std::getline(TestData, tmpLine) ){
             Setup[i] = tmpLine;
