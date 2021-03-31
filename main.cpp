@@ -4,13 +4,13 @@
 
 static std::string Setup[15];
 
-int main(){
+int main(char* type, char*file){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
-
+    std::cout << type << std::endl << file;
     //Import Data 
-    TestData.open("./setup.txt");
+    TestData.open("./file.txt");
     try{
         while( std::getline(TestData, tmpLine) ){
             Setup[i] = tmpLine;
@@ -34,7 +34,8 @@ int main(){
     int * Max = GetMax(Setup);
     int * Allocation = GetAllocation(Setup);
     int * Available = GetAvailable(Setup);
-    
+
+
     //Get CMD Line argument
 
     //Switch-Case for CMD Line Arg
