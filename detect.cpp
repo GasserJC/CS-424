@@ -33,6 +33,7 @@ int * TextToIntArr(int line, int width, std::string data[]){
                             i++; 
                             num++;
                      } else {  //assume end of line.
+                            returnArr[num] = std::stoi(tmp);
                             break; 
                      }
               }
