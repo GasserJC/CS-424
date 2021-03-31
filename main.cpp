@@ -5,6 +5,7 @@
 static std::string Setup[15];
 
 int main(int argc, char* args[]){
+    try{
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
@@ -74,6 +75,8 @@ int main(int argc, char* args[]){
 
         //Base
             //Quit
-
+    } catch (int exp) {
+        return -1;
+    }
 }
 
