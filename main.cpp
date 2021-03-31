@@ -10,8 +10,8 @@ int main(int argc, char* args[]){
     int i = 0;
 
     //Get CMD Line argument
-    std::string Type = convertToString(args[1], sizeof(args[1]) / sizeof(char));
-    std::string FilePath = convertToString(args[2], sizeof(args[2]) / sizeof(char));
+    std::string Type(args[1]);
+    std::string FilePath(args[2]);
 
     //args[1] == manual or auto, args[2] == file input
 

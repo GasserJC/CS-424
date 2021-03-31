@@ -137,19 +137,4 @@ int* GetAvailable(std::string data[]){
        return Available;
 }
 
-std::string convertToString(char* a, int size)
-{
-    std::string s = "";
-    int i = 0;
-    try{
-       while(true) {
-              s = s + a[i];
-              i++;
-       }
-    } catch (int exp) {
-           return s;
-    }
-    return s;
-}
-
 #endif
