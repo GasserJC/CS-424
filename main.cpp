@@ -40,13 +40,19 @@ int main(int argc, char* args[]){
         return -1;
     }
     
-    //Run Check
-    if(!HasSafeState(Setup)){
+    try{
+        //Run Check
+        if(!HasSafeState(Setup)){
+            std::cout << std::endl << "The State is Unsafe." << std::endl;
+            return 1;
+        } else {
+            std::cout << std::endl << "The State is Safe." << std::endl;
+        }   
+    } catch (int exp) {
         std::cout << std::endl << "The State is Unsafe." << std::endl;
-        return 1;
-    } else {
-        std::cout << std::endl << "The State is Safe." << std::endl;
-    }   
+        return -1;
+    }
+
 
     //Get Data
     int * Max = GetMax(Setup);
