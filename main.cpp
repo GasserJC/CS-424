@@ -4,7 +4,7 @@
 
 static std::string Setup[15];
 
-int main(char* type, char*file){
+int main(char** type, char**file){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
