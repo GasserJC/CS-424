@@ -18,7 +18,7 @@ bool HasSafeState(std::string data[]){
        int * Max = new int [processes*resources];
        for(int i = 0; i < processes; i++){
               for(int j = 0; j < resources; j++){
-                     int tmp = Max[i*processes + j] = (int)data[5+i][2*j] - 48;
+                     int tmp = Max[i*resources + j] = (int)data[5+i][2*j] - 48;
               }
        }
        for(int i = 0; i < 15; i++){
