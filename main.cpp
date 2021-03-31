@@ -8,11 +8,27 @@ int main(int argc, char* args[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
-    std::cout << args[2];
+
+    //Get CMD Line argument
+    std::string Type = convertToString(args[1], sizeof(args[1]) / sizeof(char));
+    std::string FilePath = convertToString(args[2], sizeof(args[2]) / sizeof(char));
+
     //args[1] == manual or auto, args[2] == file input
 
     //Import Data 
-    TestData.open("./setup.txt");
+    try{
+        TestData.open("./" + FilePath);
+    } catch (int exp) {
+        std::cout << "your file does not exist, proceeding with default path/input - setup.txt";
+        try{
+            TestData.open("./setup.txt");
+        } catch (int exp) {
+            std::cout << "unable to find default file.";
+            return -1;
+        }
+        
+    }
+    
     try{
         while( std::getline(TestData, tmpLine) ){
             Setup[i] = tmpLine;
@@ -21,7 +37,7 @@ int main(int argc, char* args[]){
     }
     catch (int exp) {
         std::cout << "Error With Test Data File";
-        return 1;
+        return -1;
     }
     
     //Run Check
@@ -36,9 +52,6 @@ int main(int argc, char* args[]){
     int * Max = GetMax(Setup);
     int * Allocation = GetAllocation(Setup);
     int * Available = GetAvailable(Setup);
-
-
-    //Get CMD Line argument
 
     //Switch-Case for CMD Line Arg
         //Manual
