@@ -13,7 +13,7 @@ int main(int argc, char* args[]){
     //std::string Type(args[1]);
     //std::string FilePath(args[2]);
 std::string Type = "manual";
-std::string FilePath = "setup.txt";
+std::string FilePath = "test.txt";
     //args[1] == manual or auto, args[2] == file input
 
     //Import Data 
