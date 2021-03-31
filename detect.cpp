@@ -36,11 +36,11 @@ bool HasSafeState(std::string data[]){
 
        //init available
        for(int i = 0; i < resources; i++){
-              Available[i] = (int)data[3][i] - 48;
+              Available[2*i] = (int)data[3][i] - 48;
        }
 
        for(int i = 0; i < resources; i++){
-              std::cout << std::endl << Available[i];
+              std::cout << std::endl << Available[2*i];
        }
        return true;
 }
