@@ -35,10 +35,7 @@ bool HasSafeState(std::string data[]){
               }
        }
 
-       //init available
-       for(int i = 0; i < resources; i++){
-              Available[i] = (int)data[3][2*i] - 48;
-       }
+       Available = TextToIntArr(3,3,data);
 
        for(int i = 0; i < resources; i++){
               std::cout << std::endl << data[11][900];
@@ -52,7 +49,7 @@ int * TextToIntArr(int line, int width, std::string data[]){
        int i = 0, num = 0;
        
        //get data, and only grab numbers (not spaces or null)
-       while(true){
+       while(num < width){
               if(data[line][i] != ' ' && ( data[line][i] == '\0')){
                      tmp += data[line][i];
                      i++;
@@ -68,6 +65,8 @@ int * TextToIntArr(int line, int width, std::string data[]){
                      }
               }
        }
+
+       return returnArr;
 }
 
 #endif
