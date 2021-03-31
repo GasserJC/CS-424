@@ -18,7 +18,7 @@ bool HasSafeState(std::string data[]){
        int processes = (int)data[1][0] - 48;
        int * Max = new int [processes*resources];
        int * Allocation = new int [processes*resources];
-       
+
        //init max
        for(int i = 0; i < processes; i++){
               for(int j = 0; j < resources; j++){
@@ -34,7 +34,7 @@ bool HasSafeState(std::string data[]){
        }
 
        for(int i = 0; i < 15; i++){
-              std::cout << std::endl << Max[i];
+              std::cout << std::endl << Allocation[i];
        }
        return true;
 }
