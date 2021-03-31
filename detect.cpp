@@ -28,7 +28,7 @@ int * TextToIntArr(int line, int width, std::string data[]){
               } else {
                      //if space Therefore another number ahead.
                      //therefore, store current and proceed.
-                     if(data[line][i] != ' '){ 
+                     if(data[line][i] == ' '){ 
                             std::cout << std::endl << tmp << std::endl;
                             returnArr[num] = std::stoi(tmp);
                             i++; 
