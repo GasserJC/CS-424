@@ -31,6 +31,7 @@ int * TextToIntArr(int line, int width, std::string data[]){
                      if(data[line][i] == ' '){ 
                             std::cout << std::endl << tmp << std::endl;
                             returnArr[num] = std::stoi(tmp);
+                            tmp="";
                             i++; 
                             num++;
                      } else {  //assume end of line.
