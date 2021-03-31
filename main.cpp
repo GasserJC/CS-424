@@ -4,7 +4,7 @@
 
 static std::string Setup[15];
 
-int main(int argc, std::string* args[]){
+int main(int argc, char* args[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
