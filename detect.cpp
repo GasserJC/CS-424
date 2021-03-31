@@ -46,19 +46,28 @@ bool HasSafeState(std::string data[]){
        return true;
 }
 
-/*
-int * TextToIntArr(int start, int end, std::string data[]){
-       for(int a = start; a <= end; a++){
-              std::string tmp = "";
-              int i = 0;
-              while(true){
-                     if(data[a][i] != ' ' && data[a][i] != ''){
-
-                     } else {
-                            break;
+int * TextToIntArr(int line, int width, std::string data[]){
+       int * returnArr = new int[width];
+       std::string tmp = "";
+       int i = 0, num = 0;
+       
+       //get data, and only grab numbers (not spaces or null)
+       while(true){
+              if(data[line][i] != ' ' && (data[line][i] != NULL || data[line][i] == '\0')){
+                     tmp += data[line][i];
+                     i++;
+              } else {
+                     //if space Therefore another number ahead.
+                     //therefore, store current and proceed.
+                     if(data[line][i] != ' '){ 
+                            returnArr[num] = std::stoi(tmp);
+                            i++; 
+                            num++;
+                     } else {  //assume end of line.
+                            break; 
                      }
               }
        }
 }
-*/
+
 #endif
