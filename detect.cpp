@@ -13,6 +13,33 @@ def HasSafeState():
    return true
 */
 
+
+int * TextToIntArr(int line, int width, std::string data[]){
+       int * returnArr = new int[width];
+       std::string tmp = "";
+       int i = 0, num = 0;
+       
+       //get data, and only grab numbers (not spaces or null)
+       while(num < width){
+              if(data[line][i] != ' ' && ( data[line][i] == '\0')){
+                     tmp += data[line][i];
+                     i++;
+              } else {
+                     //if space Therefore another number ahead.
+                     //therefore, store current and proceed.
+                     if(data[line][i] != ' '){ 
+                            returnArr[num] = std::stoi(tmp);
+                            i++; 
+                            num++;
+                     } else {  //assume end of line.
+                            break; 
+                     }
+              }
+       }
+
+       return returnArr;
+}
+
 bool HasSafeState(std::string data[]){
        //init resources and processes
        int resources = (int)data[0][0] - 48;
@@ -43,30 +70,5 @@ bool HasSafeState(std::string data[]){
        return true;
 }
 
-int * TextToIntArr(int line, int width, std::string data[]){
-       int * returnArr = new int[width];
-       std::string tmp = "";
-       int i = 0, num = 0;
-       
-       //get data, and only grab numbers (not spaces or null)
-       while(num < width){
-              if(data[line][i] != ' ' && ( data[line][i] == '\0')){
-                     tmp += data[line][i];
-                     i++;
-              } else {
-                     //if space Therefore another number ahead.
-                     //therefore, store current and proceed.
-                     if(data[line][i] != ' '){ 
-                            returnArr[num] = std::stoi(tmp);
-                            i++; 
-                            num++;
-                     } else {  //assume end of line.
-                            break; 
-                     }
-              }
-       }
-
-       return returnArr;
-}
 
 #endif
