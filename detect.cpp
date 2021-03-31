@@ -13,8 +13,8 @@ def HasSafeState():
 */
 
 bool HasSafeState(std::string data[]){
-       int resources = int (data[0][0]);
-       int processes = int (data[1][0]);
+       int resources = (int)data[0][0] - 48;
+       int processes = (int)data[1][0] - 48;
        std::cout << std::endl << "resources: " << resources << std::endl;
        std::cout << std::endl << "processes: " << processes << std::endl;
        return true;
