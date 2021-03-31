@@ -67,7 +67,7 @@ bool HasSafeState(std::string data[]){
        Available = TextToIntArr(3,3,data);
 
        for(int i = 0; i < resources; i++){
-              std::cout << std::endl << data[11][900];
+              std::cout << std::endl << Available[i];
        }
        return true;
 }
