@@ -12,9 +12,10 @@ int main(int argc, char *argv[]){
     int i = 0;
 
     //Get CMD Line argument
-    std::string Type; Type.assign(argv[1]);
-     std::string FilePath; FilePath.assign(argv[2]);
-
+    std::vector<std::string> allArgs(argv, argv + argc);
+    std::string FilePath = allArgs[2];
+    std::string Type = allArgs[1];
+    
     //args[1] == manual or auto, args[2] == file input
 
     //Import Data 
