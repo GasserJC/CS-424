@@ -3,17 +3,7 @@
 #include <string>
 #include <vector>
 
-/*
-def HasSafeState():
-   For each process p in each resource R
-           if( not (Allocation[p][R] <= Max[p][R]))
-                  return false
-           if( not (Sum(Allocation[R]  row) + Available[R] == [Total[R]] ))
-                  return false               
-   return true
-*/
-
-
+//returns int array of a text file deliminated by spaces.
 int * TextToIntArr(int line, int width, std::string data[]){
        int * returnArr = new int[width];
        std::string tmp = "";
@@ -38,9 +28,18 @@ int * TextToIntArr(int line, int width, std::string data[]){
                      }
               }
        }
-
        return returnArr;
 }
+
+/*
+func HasSafeState():
+   For each process p in each resource R
+           if( not (Allocation[p][R] <= Max[p][R]))
+                  return false
+           if( not (Sum(Allocation[R]  row) + Available[R] == [Total[R]] ))
+                  return false               
+   return true
+*/
 
 bool HasSafeState(std::string data[]){
        //init resources and processes
@@ -52,15 +51,17 @@ bool HasSafeState(std::string data[]){
 
        //init max
        for(int i = 0; i < processes; i++){
+              int* tmp = TextToIntArr(i+5,resources, data);
               for(int j = 0; j < resources; j++){
-                     Max[i*resources + j] = (int)data[5+i][2*j] - 48;
+                     Max[i*resources + j] = tmp[j];
               }
        }
 
        //init allocation
        for(int i = 0; i < processes; i++){
+              int* tmp = TextToIntArr(6+processes,resources, data);
               for(int j = 0; j < resources; j++){
-                     Allocation[i*resources + j] = (int)data[11+i][2*j] - 48;
+                     Allocation[i*resources + j] = tmp[j];
               }
        }
 
@@ -68,6 +69,8 @@ bool HasSafeState(std::string data[]){
 
        for(int i = 0; i < resources; i++){
               std::cout << std::endl << Available[i];
+              std::cout << std::endl << Max[i];
+              std::cout << std::endl << Allocation[i];
        }
        return true;
 }
