@@ -8,7 +8,7 @@ int main(int argc, char* args[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
-    std::cout << args[0] << std::endl << args[1];
+    std::cout << args[1] << std::endl << args[2];
     //Import Data 
     TestData.open("./setup.txt");
     try{
