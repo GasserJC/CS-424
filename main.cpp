@@ -22,8 +22,7 @@ int main(){
         return 1;
     }
     
-    //Init Data
-    // Look at detect.cpp to understand the needed feature optimization    
+    //Run Check
     if(!HasSafeState(Setup)){
         std::cout << std::endl << "The State is Unsafe." << std::endl;
         return 1;
@@ -31,26 +30,28 @@ int main(){
         std::cout << std::endl << "The State is Safe." << std::endl;
     }   
 
-    //Run Check
+    //Get Data
+    int * Max = GetMax(Setup);
+    int * Allocation = GetAllocation(Setup);
+    int * Available = GetAvailable(Setup);
+    
+    //Get CMD Line argument
+
+    //Switch-Case for CMD Line Arg
+        //Manual
+            //the user can request any I of J for K
+            //the user can release anu I of J for K
+            //the user can end the program
+
+        //Automatic
+            //create 1 thread for each n process 
+            //each thread generates 3 random requests and 3 release commands for itself
+            //requests alternate with releases
+            //after the requests and releases are done, terminate the thread
+            //terminate the program after all threads are done
+
+        //Base
+            //Quit
 
 }
 
-
-//Get CMD Line argument
-
-//Switch-Case for CMD Line Arg
-
-    //Manual
-        //the user can request any I of J for K
-        //the user can release anu I of J for K
-        //the user can end the program
-
-    //Automatic
-        //create 1 thread for each n process 
-        //each thread generates 3 random requests and 3 release commands for itself
-        //requests alternate with releases
-        //after the requests and releases are done, terminate the thread
-        //terminate the program after all threads are done
-
-    //Base
-        //Quit

@@ -68,7 +68,7 @@ bool HasSafeState(std::string data[]){
        }
 
        //init Available
-       Available = TextToIntArr(3,3,data);
+       Available = TextToIntArr(3,resources,data);
 
        //Perform Check
        for(int p = 0; p < processes; p++){
@@ -93,5 +93,46 @@ bool HasSafeState(std::string data[]){
        return true;
 }
 
+int* GetAllocation(std::string data[]){
+       int resources = (int)data[0][0] - 48;
+       int processes = (int)data[1][0] - 48;
+       int * Allocation = new int [processes*resources];
+
+       //init allocation
+       for(int i = 0; i < processes; i++){
+              int* tmp = TextToIntArr(6+processes,resources, data);
+              for(int j = 0; j < resources; j++){
+                     Allocation[i*resources + j] = tmp[j];
+              }
+       }
+
+       return Allocation;
+}
+
+int* GetMax(std::string data[]){
+       int resources = (int)data[0][0] - 48;
+       int processes = (int)data[1][0] - 48;
+       int * Max = new int [processes*resources];
+
+       //init max
+       for(int i = 0; i < processes; i++){
+              int* tmp = TextToIntArr(i+5,resources, data);
+              for(int j = 0; j < resources; j++){
+                     Max[i*resources + j] = tmp[j];
+              }
+       }
+
+       return Max;
+}
+
+int* GetAvailable(std::string data[]){
+       int resources = (int)data[0][0] - 48;
+       int processes = (int)data[1][0] - 48;
+       int * Available = new int [processes*resources];
+
+       Available = TextToIntArr(3,resources,data);
+
+       return Available;
+}
 
 #endif
