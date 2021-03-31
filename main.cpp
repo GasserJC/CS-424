@@ -27,7 +27,9 @@ int main(){
     if(!HasSafeState(Setup)){
         std::cout << std::endl << "The State is Unsafe." << std::endl;
         return 1;
-    }
+    } else {
+        std::cout << std::endl << "The State is Safe." << std::endl;
+    }   
 
     //Run Check
 
