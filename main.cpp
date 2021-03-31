@@ -75,7 +75,7 @@ int main(int argc, char* args[]){
 
         //Base
             //Quit
-    } catch (int exp) {
+    } catch (...) {
         return -1;
     }
 }
