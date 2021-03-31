@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include "detect.cpp"
 
 static std::string Setup[15];
 
@@ -9,6 +9,7 @@ int main(){
     std::ifstream TestData;
     int i = 0;
 
+    //Import Data 
     TestData.open("./Data/setup.txt");
     try{
         while( std::getline(TestData, tmpLine) ){
@@ -20,13 +21,18 @@ int main(){
         std::cout << "Error With Test Data File";
         return 1;
     }
-    std::cout << Setup[0];
+    
+    //Init Data
+    // Look at detect.cpp to understand the needed feature optimization    
+    if(!HasSafeState(Setup)){
+        std::cout << std::endl << "The State is Unsafe." << std::endl;
+        return 1;
+    }
+
+    //Run Check
+
 }
-//Import Data
 
-//Init Data
-
-//Run Check
 
 //Get CMD Line argument
 
