@@ -6,14 +6,14 @@
 
 static std::string Setup[15];
 
-int main(int argc, char* argv[]){
+int main(int argc, char *argv[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
 
     //Get CMD Line argument
-    std::string Type = argv[1];
-     std::string FilePath = argv[2];
+    std::string Type; Type.assign(argv[1]);
+     std::string FilePath; FilePath.assign(argv[2]);
 
     //args[1] == manual or auto, args[2] == file input
 
