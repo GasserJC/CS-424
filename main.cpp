@@ -6,19 +6,14 @@
 
 static std::string Setup[15];
 
-int main(int argc, char* args[]){
+int main(int argc, char* argv[]){
     std::string tmpLine;
     std::ifstream TestData;
     int i = 0;
 
     //Get CMD Line argument
-    char *tmp = (char *)malloc(128);
-    int n=sprintf(tmp,args[1]);
-    std::string Type = tmp;
-
-    tmp = (char *)malloc(128);
-    n = sprintf(tmp,args[2]);
-    std::string FilePath = tmp;
+    std::string Type = argv[1];
+     std::string FilePath = argv[2];
 
     //args[1] == manual or auto, args[2] == file input
 
