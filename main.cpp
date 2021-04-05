@@ -77,7 +77,6 @@ int main(int argc, char* args[]){
             default:
                 std::cout << std::endl << "Incorrect method type, enter (auto, or manual)" << std::endl;
         }
-        }
             //Manual
                 //the user can request any I of J for K
                 //the user can release anu I of J for K
