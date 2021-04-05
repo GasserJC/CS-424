@@ -72,7 +72,7 @@ int main(int argc, char* args[]){
                 std::cout << std::endl << "Manual" << std::endl;
                 break;
             case 2:
-                std::cout << std::endl << "Automatic" << std::endl;
+                std::cout << std::endl << "Automatic" << std::endl; 
                 break;
             default:
                 std::cout << std::endl << "Incorrect method type, enter (auto, or manual)" << std::endl;
