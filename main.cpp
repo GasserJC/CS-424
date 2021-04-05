@@ -59,8 +59,25 @@ int main(int argc, char* args[]){
         int * Max = GetMax(Setup);
         int * Allocation = GetAllocation(Setup);
         int * Available = GetAvailable(Setup);
+        int method = 0;
+        if(Type == "manual" || "Manual"){
+            method = 1;
+        } 
+        else if(Type == "Automatic" || Type == "Auto" || Type == "auto" || Type == "automatic"){
+            method = 2;
+        }
 
-        //Switch-Case for CMD Line Arg
+        switch (method) {
+            case 1:
+                std::cout << std::endl << "Manual" << std::endl;
+                break;
+            case 2:
+                std::cout << std::endl << "Automatic" << std::endl;
+                break;
+            default:
+                std::cout << std::endl << "Incorrect method type, enter (auto, or manual)" << std::endl;
+        }
+        }
             //Manual
                 //the user can request any I of J for K
                 //the user can release anu I of J for K
