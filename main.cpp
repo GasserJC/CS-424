@@ -68,29 +68,29 @@ int main(int argc, char* args[]){
         }
 
         switch (method) {
+
             case 1:
+                //Manual
+                    //the user can request any I of J for K
+                    //the user can release anu I of J for K
+                    //the user can end the program
                 std::cout << std::endl << "Manual" << std::endl;
                 break;
+
             case 2:
+                //Automatic
+                    //create 1 thread for each n process 
+                    //each thread generates 3 random requests and 3 release commands for itself
+                    //requests alternate with releases
+                    //after the requests and releases are done, terminate the thread
+                    //terminate the program after all threads are done
                 std::cout << std::endl << "Automatic" << std::endl; 
                 break;
+
             default:
                 std::cout << std::endl << "Incorrect method type, enter (auto, or manual)" << std::endl;
         }
-            //Manual
-                //the user can request any I of J for K
-                //the user can release anu I of J for K
-                //the user can end the program
 
-            //Automatic
-                //create 1 thread for each n process 
-                //each thread generates 3 random requests and 3 release commands for itself
-                //requests alternate with releases
-                //after the requests and releases are done, terminate the thread
-                //terminate the program after all threads are done
-
-            //Base
-                //Quit
     } catch (...) {
         std::cout << std::endl << "Data File Error!"  << std::endl;
         return -1;
