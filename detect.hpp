@@ -137,4 +137,12 @@ int* GetAvailable(std::string data[]){
        return Available;
 }
 
+int GetResources(std::string data[]){
+       return (int)data[0][0] - 48;
+}
+
+int GetProcesses(std::string data[]){
+       return (int)data[1][0] - 48;
+}
+
 #endif

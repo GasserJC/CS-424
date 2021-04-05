@@ -56,12 +56,14 @@ int main(int argc, char* args[]){
             return -1;
         }
 
-
         //Get Data
         int * Max = GetMax(Setup);
         int * Allocation = GetAllocation(Setup);
         int * Available = GetAvailable(Setup);
+        int Resources = GetResources(Setup);
+        int Processes = GetProcesses(Setup);
         int method = 0;
+
         if(Type == "manual" || "Manual"){
             method = 1;
         } 
@@ -72,12 +74,12 @@ int main(int argc, char* args[]){
         switch (method) {
 
             case 1:
-                Manual(Max, Allocation, Available);
+                Manual(Max, Allocation, Available, Resources, Processes);
                 std::cout << std::endl << "Manual" << std::endl;
                 break;
 
             case 2:
-                Auto(Max, Allocation, Available);
+                Auto(Max, Allocation, Available, Resources, Processes);
                 std::cout << std::endl << "Automatic" << std::endl; 
                 break;
 
