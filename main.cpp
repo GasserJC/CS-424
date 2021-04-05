@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include "detect.hpp"
+#include "banker.hpp"
+
 
 static std::string Setup[15];
 
@@ -70,20 +72,12 @@ int main(int argc, char* args[]){
         switch (method) {
 
             case 1:
-                //Manual
-                    //the user can request any I of J for K
-                    //the user can release anu I of J for K
-                    //the user can end the program
+                Manual(Max, Allocation, Available);
                 std::cout << std::endl << "Manual" << std::endl;
                 break;
 
             case 2:
-                //Automatic
-                    //create 1 thread for each n process 
-                    //each thread generates 3 random requests and 3 release commands for itself
-                    //requests alternate with releases
-                    //after the requests and releases are done, terminate the thread
-                    //terminate the program after all threads are done
+                Auto(Max, Allocation, Available);
                 std::cout << std::endl << "Automatic" << std::endl; 
                 break;
 
