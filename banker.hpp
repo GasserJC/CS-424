@@ -6,11 +6,23 @@
 #include <Rando.hpp>
 
 void Request(int I,int J,int K){
+    //process K makes a request for I many resources of resource J
+    if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
 
+        //Grant Request
+        ALLOCATION[K*PROCESSES + J] += I;
+        AVAILABLE[J] -= I;
+
+        if(!HasSafeState()){
+            //Undo Request
+            ALLOCATION[K*PROCESSES + J] -= I;
+            AVAILABLE[J] += I;
+        }
+    }
 }
 
 void Release(int I,int J,int K){
-    
+    //process K releases for I many resources of resource J
 }
 
 void Bankers(){

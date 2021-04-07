@@ -6,6 +6,7 @@
     static int * MAX;
     static int * ALLOCATION;
     static int * AVAILABLE;
+    static int * NEED;
     static int RESOURCES;
     static int PROCESSES;
 
@@ -84,7 +85,9 @@ int main(int argc, char* args[]){
         AVAILABLE = GetAvailable(Setup);
         RESOURCES = GetResources(Setup);
         PROCESSES = GetProcesses(Setup);
+        NEED = GetNeed(Setup);
         int method = 0;
+
 
         std::cout << Type;
 

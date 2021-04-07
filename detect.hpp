@@ -143,4 +143,43 @@ int GetProcesses(std::string data[]){
        return (int)data[1][0] - 48;
 }
 
+int* GetNeed(std::string data[]){
+       int resources = (int)data[0][0] - 48;
+       int processes = (int)data[1][0] - 48;
+       int * Max = GetMax(data);
+       int * Allocation = GetAllocation(data);
+       int * Need = new int[processes*resources];
+
+       for(int i = 0; i < processes; i++){
+              for(int j = 0; j < resources; j++){
+                     Need[i*processes+j] = Max[i*processes+j] - Allocation[i*processes+j];
+              }
+       }
+
+       return Need;
+}
+
+bool HasSafeState(){
+       //Perform Check
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){
+                     if(ALLOCATION[p*PROCESSES + R] > MAX[p*PROCESSES + R]){
+                            return false;
+                     }
+              }
+       }
+       for(int R = 0; R < RESOURCES; R++){
+              int sum = 0;
+              for(int p = 0; p < PROCESSES; p++){
+                     sum += ALLOCATION[p*PROCESSES + R];
+              }
+              sum += AVAILABLE[R];
+              if(sum != AVAILABLE[R]){
+                     return false;
+              }
+       }
+
+       return true;
+}
+
 #endif
