@@ -3,6 +3,13 @@
 #include <string>
 #include <vector>
 
+static int * MAX;
+static int * ALLOCATION;
+static int * AVAILABLE;
+static int * NEED;
+static int RESOURCES;
+static int PROCESSES;
+
 //returns int array of a text file deliminated by spaces.
 int * TextToIntArr(int line, int width, std::string data[]){
        int * returnArr = new int[width];

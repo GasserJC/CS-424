@@ -3,13 +3,6 @@
 #include "detect.hpp"
 #include "banker.hpp"
 
-    static int * MAX;
-    static int * ALLOCATION;
-    static int * AVAILABLE;
-    static int * NEED;
-    static int RESOURCES;
-    static int PROCESSES;
-
 /*
 !!! !!!
  !!! !!!
