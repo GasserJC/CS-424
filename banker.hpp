@@ -7,6 +7,8 @@
 #include "detect.hpp"
 
 void Request(int I,int J,int K){
+    std::cout << "\nRequest " << I << " of " << J << " for " << K;
+
     //process K makes a request for I many resources of resource J
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
 
@@ -18,6 +20,9 @@ void Request(int I,int J,int K){
             //Undo Request
             ALLOCATION[K*PROCESSES + J] -= I;
             AVAILABLE[J] += I;
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!";
+        } else {
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!";
         }
     }
 }
