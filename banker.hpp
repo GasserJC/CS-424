@@ -7,7 +7,7 @@
 #include "detect.hpp"
 #include "Semaphore.hpp"
 
-Semaphore Lock(0);
+Semaphore Lock(1);
 
 void Request(int I,int J,int K, int ID){
     std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;   
