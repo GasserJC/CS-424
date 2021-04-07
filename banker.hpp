@@ -5,9 +5,12 @@
 #include <thread>
 #include "Rando.hpp"
 #include "detect.hpp"
-#include "Semaphore.hpp"
+//#include "Semaphore.hpp"
+#include <mutex>
 
-Semaphore Lock(1);
+//Semaphore Lock(1);
+
+std::mutex Lock;
 
 void Request(int I,int J,int K, int ID){
     std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;   
@@ -16,10 +19,10 @@ void Request(int I,int J,int K, int ID){
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
 
         //Grant Request   
-        Lock.wait();
+        Lock.lock();
         ALLOCATION[K*PROCESSES + J] += I;
         AVAILABLE[J] -= I;
-        Lock.signal();
+        Lock.unlock();
 
         if(!HasSafeState()){
             //Undo Request
