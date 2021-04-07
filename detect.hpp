@@ -181,7 +181,7 @@ bool HasSafeState(){
                      sum += ALLOCATION[p*PROCESSES + R];
               }
               sum += AVAILABLE[R];
-              if(sum != AVAILABLE[R]){
+              if(sum > AVAILABLE[R]){
                      return false;
               }
        }
