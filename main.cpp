@@ -103,6 +103,9 @@ int main(int argc, char* args[]){
 
             case 2:
                 Auto();
+                while(AVAILABLE[0]+AVAILABLE[1]+AVAILABLE[2] > 0){
+                    Auto();
+                }
                 print();
                 std::cout << std::endl << "Automatic" << std::endl; 
                 break;
