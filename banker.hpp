@@ -55,7 +55,7 @@ void ManualThread(){
     int I,J,K;
     while(true){
         std::cout << "Enter Request:";
-        std::cin >> cmd;
+        std::getline(std::cin, cmd);
 
         if(cmd[0] == 'r'){
             try{
