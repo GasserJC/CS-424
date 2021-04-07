@@ -5,10 +5,7 @@
 #include <thread>
 #include "Rando.hpp"
 #include "detect.hpp"
-//#include "Semaphore.hpp"
 #include <mutex>
-
-//Semaphore Lock(1);
 
 std::mutex Lock;
 
