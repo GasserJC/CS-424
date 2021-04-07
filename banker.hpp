@@ -7,7 +7,7 @@
 #include "detect.hpp"
 
 void Request(int I,int J,int K, int ID){
-    std::cout << "\nRequest " << I << " of " << J << " for " << K << "FROM " << ID;
+    std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;
 
     //process K makes a request for I many resources of resource J
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
@@ -20,9 +20,9 @@ void Request(int I,int J,int K, int ID){
             //Undo Request
             ALLOCATION[K*PROCESSES + J] -= I;
             AVAILABLE[J] += I;
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << "FROM " << ID;
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " FROM " << ID;
         } else {
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << "FROM " << ID;
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " FROM " << ID;
         }
     }
 }
@@ -32,7 +32,7 @@ void Release(int I,int J,int K, int ID){
 }
 
 void Bankers(int ID){
-    Seed(PROCESSES*RESOURCES);
+    Seed(PROCESSES*RESOURCES*ID);
     int Unit[6];
     int Resource[6];
     int Process[6];
