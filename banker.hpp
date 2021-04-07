@@ -13,16 +13,16 @@
 std::mutex Lock;
 
 void Request(int I,int J,int K, int ID){
+    Lock.lock();
     std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;   
-
     //process K makes a request for I many resources of resource J
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
 
         //Grant Request   
-        Lock.lock();
+        
         ALLOCATION[K*PROCESSES + J] += I;
         AVAILABLE[J] -= I;
-        Lock.unlock();
+        
 
         if(!HasSafeState()){
             //Undo Request
@@ -35,6 +35,7 @@ void Request(int I,int J,int K, int ID){
     } else {
         std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " from " << ID;
     }
+    Lock.unlock();
 }
 
 void Release(int I,int J,int K, int ID){
