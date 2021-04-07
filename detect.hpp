@@ -171,6 +171,7 @@ bool HasSafeState(){
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){
                      if(ALLOCATION[p*PROCESSES + R] > MAX[p*PROCESSES + R]){
+                            std::cout << "***";
                             return false;
                      }
               }
@@ -182,6 +183,7 @@ bool HasSafeState(){
               }
               sum += AVAILABLE[R];
               if(sum > AVAILABLE[R]){
+                     std::cout << "???";
                      return false;
               }
        }
