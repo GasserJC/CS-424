@@ -65,14 +65,14 @@ void ManualThread(){
         if(cmd[0] == 'r'){
             try{
                 if(cmd[2] == 'q'){ //request cmd
-                    I = int(cmd[8]);
-                    J = int(cmd[13]);
-                    K = int(cmd[19]);
+                    I = int(cmd[8])  - 48;
+                    J = int(cmd[13])  - 48;
+                    K = int(cmd[19])  - 48;
                     Request(I,J,K);
                 } else { //release cmd
-                    I = int(cmd[8]);
-                    J = int(cmd[13]);
-                    K = int(cmd[19]);
+                    I = int(cmd[8])  - 48;
+                    J = int(cmd[13])  - 48;
+                    K = int(cmd[19])  - 48;
                     Release(I,J,K);
                 }   
             } catch (...){ //impropper user input
