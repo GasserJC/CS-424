@@ -111,7 +111,7 @@ int main(int argc, char* args[]){
                 std::cout << std::endl << "Incorrect method type, enter (auto, or manual)" << std::endl;
         }
     } catch (...) {
-        std::cout << std::endl << "Program Errored Out!"  << std::endl;
+        std::cout << std::endl << "Program Errored Out! (likely file path was incorrect)"  << std::endl;
         return -1;
     }
 }
