@@ -46,8 +46,8 @@ int main(int argc, char* args[]){
                 std::cout << "unable to find default file.";
                 return -1;
             }
-            
         }
+
         try{
             while( std::getline(TestData, tmpLine) ){
                 Setup[i] = tmpLine;
@@ -59,6 +59,10 @@ int main(int argc, char* args[]){
             return -1;
         }
         
+        for(int i = 0; i < 15; i++){
+            std::cout << Setup[i];
+        }   
+
         //Run Check
         try{
             if(!HasSafeState(Setup)){
