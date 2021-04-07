@@ -50,44 +50,7 @@ func HasSafeState():
                   return false               
    return true
 */
-bool HasSafeState(std::string data[]){
-       //init resources and processes
-       int resources = (int)data[0][0] - 48;
-       int processes = (int)data[1][0] - 48;
-       int * Max = new int [processes*resources];
-       int * Allocation = new int [processes*resources];
-       int * Available = new int [resources];
 
-       //init max
-       for(int i = 0; i < processes; i++){
-              int* tmp = TextToIntArr(i+5,resources, data);
-              for(int j = 0; j < resources; j++){
-                     Max[i*resources + j] = tmp[j];
-              }
-       }
-
-       //init allocation
-       for(int i = 0; i < processes; i++){
-              int* tmp = TextToIntArr(6+processes,resources, data);
-              for(int j = 0; j < resources; j++){
-                     Allocation[i*resources + j] = tmp[j];
-              }
-       }
-
-       //init Available
-       Available = TextToIntArr(3,resources,data);
-
-       //Perform Check
-       for(int p = 0; p < processes; p++){
-              for(int R = 0; R < resources; R++){
-                     if(Allocation[p*processes + R] > Max[p*processes + R]){
-                            return false;
-                     }
-              }
-       }
-       HasSafeState();
-       return true;
-}
 
 int* GetAllocation(std::string data[]){
        int resources = (int)data[0][0] - 48;
@@ -195,6 +158,44 @@ bool HasSafeState(){
        delete[] Finished;
        delete[] Work;
        return Safe;
+}
+bool HasSafeState(std::string data[]){
+       //init resources and processes
+       int resources = (int)data[0][0] - 48;
+       int processes = (int)data[1][0] - 48;
+       int * Max = new int [processes*resources];
+       int * Allocation = new int [processes*resources];
+       int * Available = new int [resources];
+
+       //init max
+       for(int i = 0; i < processes; i++){
+              int* tmp = TextToIntArr(i+5,resources, data);
+              for(int j = 0; j < resources; j++){
+                     Max[i*resources + j] = tmp[j];
+              }
+       }
+
+       //init allocation
+       for(int i = 0; i < processes; i++){
+              int* tmp = TextToIntArr(6+processes,resources, data);
+              for(int j = 0; j < resources; j++){
+                     Allocation[i*resources + j] = tmp[j];
+              }
+       }
+
+       //init Available
+       Available = TextToIntArr(3,resources,data);
+
+       //Perform Check
+       for(int p = 0; p < processes; p++){
+              for(int R = 0; R < resources; R++){
+                     if(Allocation[p*processes + R] > Max[p*processes + R]){
+                            return false;
+                     }
+              }
+       }
+       HasSafeState();
+       return true;
 }
 
 void print(){
