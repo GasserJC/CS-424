@@ -189,4 +189,21 @@ bool HasSafeState(){
        return true;
 }
 
+void print(){
+       std::cout << "\n--- Allocated Array ---\n";
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){      
+                     std::cout << ALLOCATION[p*PROCESSES + R] << "     ";
+              }
+              std::cout << std::endl;
+       }
+
+       std::cout << "\n--- Available Array ---\n";
+
+       for(int R = 0; R < RESOURCES; R++){      
+              std::cout << AVAILABLE[R] << "     ";
+       }
+
+}
+
 #endif

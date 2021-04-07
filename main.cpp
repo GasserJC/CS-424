@@ -97,11 +97,13 @@ int main(int argc, char* args[]){
 
             case 1:
                 Manual();
+                print();
                 std::cout << std::endl << "Manual" << std::endl;
                 break;
 
             case 2:
                 Auto();
+                print();
                 std::cout << std::endl << "Automatic" << std::endl; 
                 break;
 
