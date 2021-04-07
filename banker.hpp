@@ -15,16 +15,15 @@ void Request(int I,int J,int K, int ID){
         //Grant Request
         ALLOCATION[K*PROCESSES + J] += I;
         AVAILABLE[J] -= I;
-        /*
+
         if(!HasSafeState()){
             //Undo Request
             ALLOCATION[K*PROCESSES + J] -= I;
             AVAILABLE[J] += I;
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " FROM " << ID;
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " from " << ID;
         } else {
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " FROM " << ID;
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID;
         }
-        */
     }
 }
 
