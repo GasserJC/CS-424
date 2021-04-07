@@ -187,16 +187,31 @@ bool HasSafeState(std::string data[]){
        //init Available
        Available = TextToIntArr(3,resources,data);
 
+       std::cout << "\n--- Allocated Array ---\n";
+       for(int p = 0; p < processes; p++){
+              for(int R = 0; R < resources; R++){      
+                     std::cout << Allocation[p*processes + R] << "     ";
+              }
+              std::cout << std::endl;
+       }
+       std::cout << "\n--- Max Array ---\n";
+       for(int p = 0; p < processes; p++){
+              for(int R = 0; R < resources; R++){      
+                     std::cout << Allocation[p*processes + R] << "     ";
+              }
+              std::cout << std::endl;
+       }
+
        //Perform Check
        for(int p = 0; p < processes; p++){
               for(int R = 0; R < resources; R++){
                      if(Allocation[p*processes + R] > Max[p*processes + R]){
+                            
                             return false;
                      }
               }
        }
-       HasSafeState();
-       return true;
+       return HasSafeState();
 }
 
 void print(){
