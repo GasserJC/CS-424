@@ -5,7 +5,7 @@
 #include <thread>
 
 void Request(int I,int J,int K){
-    std::cout << I, K, K;
+    std::cout << "\nI:" << I << " J:" << J << " K:" << K;
 }
 
 void Release(int I,int J,int K){
