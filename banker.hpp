@@ -6,8 +6,8 @@
 #include "Rando.hpp"
 #include "detect.hpp"
 
-void Request(int I,int J,int K){
-    std::cout << "\nRequest " << I << " of " << J << " for " << K;
+void Request(int I,int J,int K, int ID){
+    std::cout << "\nRequest " << I << " of " << J << " for " << K << "FROM " << ID;
 
     //process K makes a request for I many resources of resource J
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
@@ -20,18 +20,18 @@ void Request(int I,int J,int K){
             //Undo Request
             ALLOCATION[K*PROCESSES + J] -= I;
             AVAILABLE[J] += I;
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!";
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << "FROM " << ID;
         } else {
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!";
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << "FROM " << ID;
         }
     }
 }
 
-void Release(int I,int J,int K){
+void Release(int I,int J,int K, int ID){
     //process K releases for I many resources of resource J
 }
 
-void Bankers(){
+void Bankers(int ID){
     Seed(PROCESSES*RESOURCES);
     int Unit[6];
     int Resource[6];
@@ -48,9 +48,9 @@ void Bankers(){
     //Alternate Requests and Releases
     for(int i = 0; i < 6; i++){
         if( i % 2 == 0){
-           Request(Unit[i], Resource[i], Process[i]);
+           Request(Unit[i], Resource[i], Process[i], ID);
         } else {
-           Release(Unit[i], Resource[i], Process[i]);
+           Release(Unit[i], Resource[i], Process[i], ID);
         }
     }
 }
@@ -68,12 +68,12 @@ void ManualThread(){
                     I = int(cmd[8])  - 48;
                     J = int(cmd[13])  - 48;
                     K = int(cmd[19])  - 48;
-                    Request(I,J,K);
+                    Request(I,J,K,-1);
                 } else { //release cmd
                     I = int(cmd[8])  - 48;
                     J = int(cmd[13])  - 48;
                     K = int(cmd[19])  - 48;
-                    Release(I,J,K);
+                    Release(I,J,K,-1);
                 }   
             } catch (...){ //impropper user input
                 std::cout << "\nimpropper user input \n options are: \n request I of J for K \n release I of J for K \n end \n";
@@ -104,7 +104,7 @@ void Auto(){
 
     std::vector<std::thread> Pool;
     for(int i = 0; i < PROCESSES; i++){
-        Pool.push_back(std::thread(Bankers));
+        Pool.push_back(std::thread(Bankers, i));
     }
 
     for(int i = 0; i < PROCESSES; i++){
