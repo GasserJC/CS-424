@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <thread>
+#include <Rando.hpp>
 
 void Request(int I,int J,int K){
     std::cout << "\nI:" << I << " J:" << J << " K:" << K;
@@ -12,6 +13,29 @@ void Release(int I,int J,int K){
     
 }
 
+void Bankers(int Max [], int Allocation [], int Available [], int Resources, int Processes){
+    Seed(Processes*Resources);
+    int Unit[6];
+    int Resource[6];
+    int Process[6];
+
+    //Make three requests and releases
+    // arr = {request, release, ...}
+    for(int i = 0; i < 6; i++){
+        Process[i] = int(RANDOM() * Processes);
+        Resource[i] = int(RANDOM() * Resources);
+        Unit[i] = int(RANDOM() * Max[Process[i]*Processes + Resource[i]]);
+    }
+
+    //Alternate Requests and Releases
+    for(int i = 0; i < 6; i++){
+        if( i % 2 == 0){
+            Request();
+        } else {
+            Release();
+        }
+    }
+}
 
 void Manual(int Max [], int Allocation [], int Available [], int Resources, int Processes){
     std::string cmd;
@@ -30,7 +54,7 @@ void Manual(int Max [], int Allocation [], int Available [], int Resources, int 
             } catch (...){ //impropper user input
                 std::cout << "impropper user input \n options are: \n request I of J for K \n release I of J for K \n end \n";
             }
-        } else if(cmd == "end"){
+        } else if(cmd == "end"){ //user wants to end
             std::cout << "Ending Manual Mode.";
             break;
         } else {
@@ -40,23 +64,22 @@ void Manual(int Max [], int Allocation [], int Available [], int Resources, int 
 }
 
 void Auto(int Max [], int Allocation [], int Available [], int Resources, int Processes){
-    std::cout << Processes;
+
+    //Automatic
+    //create 1 thread for each n process 
+        //each thread generates 3 random requests and 3 release commands for itself
+            //requests alternate with releases
+            //after the requests and releases are done, terminate the thread
+    //terminate the program after all threads are done
+
     std::vector<std::thread> Pool;
     for(int i = 0; i < Processes; i++){
-        //std::thread prod(func, param1, ..., param2);
-        Pool.push_back(std::thread(Request, 0*i, 1*i, 2*i));
-        Pool[i].join();
+        Pool.push_back(std::thread(Bankers));
     }
 
     for(int i = 0; i < Processes; i++){
-        
+        Pool[i].join();
     }
-    //Automatic
-        //create 1 thread for each n process 
-        //each thread generates 3 random requests and 3 release commands for itself
-        //requests alternate with releases
-        //after the requests and releases are done, terminate the thread
-        //terminate the program after all threads are done
     std::cout << "Auto Thread Finish";
 }
 
