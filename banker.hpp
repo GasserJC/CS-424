@@ -23,12 +23,12 @@ void Request(int I,int J,int K, int ID){
             //Undo Request
             ALLOCATION[K*PROCESSES + J] -= I;
             AVAILABLE[J] += I;
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.0 !!!" << " from " << ID;
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.0 !!!" << " from " << ID << " Failed the Safety Check.";
         } else {
             std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID;
         }
     } else {
-        std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.1 !!!" << " from " << ID;
+        std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.1 !!!" << " from " << ID << " Failed to Request an acceptable amount.";
     }
     Lock.unlock();
 }
