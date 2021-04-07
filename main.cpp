@@ -41,7 +41,7 @@ int main(int argc, char* args[]){
         } catch (int exp) {
             std::cout << "your file does not exist, proceeding with default path/input - setup.txt";
             try{
-                TestData.open("./setup.txt");
+                TestData.open("./test2.txt");
             } catch (int exp) {
                 std::cout << "unable to find default file.";
                 return -1;
