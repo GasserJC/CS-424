@@ -24,6 +24,8 @@ void Request(int I,int J,int K, int ID){
         } else {
             std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID;
         }
+    } else {
+        std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " from " << ID;
     }
 }
 
@@ -42,7 +44,7 @@ void Bankers(int ID){
     for(int i = 0; i < 6; i++){
         Process[i] = int(RANDOM() * PROCESSES);
         Resource[i] = int(RANDOM() * RESOURCES);
-        Unit[i] = int(RANDOM() * MAX[Process[i]*PROCESSES + Resource[i]]);
+        Unit[i] = int(RANDOM() * MAX[Process[i]*PROCESSES + Resource[i]]) + 1;
     }
 
     //Alternate Requests and Releases
