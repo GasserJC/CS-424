@@ -16,21 +16,19 @@ void Request(int I,int J,int K, int ID){
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
 
         //Grant Request   
-        
         ALLOCATION[K*PROCESSES + J] += I;
         AVAILABLE[J] -= I;
-        
 
         if(!HasSafeState()){
             //Undo Request
             ALLOCATION[K*PROCESSES + J] -= I;
             AVAILABLE[J] += I;
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " from " << ID;
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.0 !!!" << " from " << ID;
         } else {
             std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID;
         }
     } else {
-        std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " from " << ID;
+        std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.1 !!!" << " from " << ID;
     }
     Lock.unlock();
 }
