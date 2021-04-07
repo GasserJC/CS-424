@@ -45,10 +45,11 @@ void Auto(int Max [], int Allocation [], int Available [], int Resources, int Pr
     for(int i = 0; i < Processes; i++){
         //std::thread prod(func, param1, ..., param2);
         Pool.push_back(std::thread(Request, 0*i, 1*i, 2*i));
+        Pool[i].join();
     }
 
     for(int i = 0; i < Processes; i++){
-        Pool[i].join();
+        
     }
     //Automatic
         //create 1 thread for each n process 
