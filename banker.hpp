@@ -40,6 +40,7 @@ void Manual(int Max [], int Allocation [], int Available [], int Resources, int 
 }
 
 void Auto(int Max [], int Allocation [], int Available [], int Resources, int Processes){
+    std::cout << Processes;
     std::vector<std::thread> Pool;
     for(int i = 0; i < Processes; i++){
         //std::thread prod(func, param1, ..., param2);
