@@ -59,7 +59,7 @@ void ManualThread(){
     std::string cmd;
     int I,J,K;
     while(true){
-        std::cout << std::endl; << "Enter Request:";
+        std::cout << std::endl << "Enter Request:";
         std::getline(std::cin, cmd);
 
         if(cmd[0] == 'r'){
