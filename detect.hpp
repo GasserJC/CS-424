@@ -78,20 +78,18 @@ bool HasSafeState(std::string data[]){
                      }
               }
        }
-       /*
-       Waiting on Dr.Oster's clarification
-
+                 
        for(int R = 0; R < resources; R++){
               int sum = 0;
               for(int p = 0; p < processes; p++){
                      sum += Allocation[p*processes + R];
               }
               sum += Available[R];
-              if(sum )
-
+              if(sum != Available[R]){
+                     return false;
               }
        }
-       */
+
        return true;
 }
 

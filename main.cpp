@@ -31,7 +31,6 @@ int main(int argc, char* args[]){
             }
             
         }
-        
         try{
             while( std::getline(TestData, tmpLine) ){
                 Setup[i] = tmpLine;
@@ -43,8 +42,8 @@ int main(int argc, char* args[]){
             return -1;
         }
         
+        //Run Check
         try{
-            //Run Check
             if(!HasSafeState(Setup)){
                 std::cout << std::endl << "The State is Unsafe." << std::endl;
                 return 1;
@@ -64,6 +63,7 @@ int main(int argc, char* args[]){
         int Processes = GetProcesses(Setup);
         int method = 0;
 
+        //Account for user choice
         if(Type == "manual" || "Manual"){
             method = 1;
         } 
@@ -71,6 +71,7 @@ int main(int argc, char* args[]){
             method = 2;
         }
 
+        //Start simulation
         switch (method) {
 
             case 1:
@@ -86,9 +87,8 @@ int main(int argc, char* args[]){
             default:
                 std::cout << std::endl << "Incorrect method type, enter (auto, or manual)" << std::endl;
         }
-
     } catch (...) {
-        std::cout << std::endl << "Data File Error!"  << std::endl;
+        std::cout << std::endl << "Program Errored Out!"  << std::endl;
         return -1;
     }
 }
