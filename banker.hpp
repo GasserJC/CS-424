@@ -6,15 +6,15 @@
 #include <Rando.hpp>
 
 void Request(int I,int J,int K){
-    std::cout << "\nI:" << I << " J:" << J << " K:" << K;
+
 }
 
 void Release(int I,int J,int K){
     
 }
 
-void Bankers(int Max [], int Allocation [], int Available [], int Resources, int Processes){
-    Seed(Processes*Resources);
+void Bankers(){
+    Seed(PROCESSES*RESOURCES);
     int Unit[6];
     int Resource[6];
     int Process[6];
@@ -22,22 +22,22 @@ void Bankers(int Max [], int Allocation [], int Available [], int Resources, int
     //Make three requests and releases
     // arr = {request, release, ...}
     for(int i = 0; i < 6; i++){
-        Process[i] = int(RANDOM() * Processes);
-        Resource[i] = int(RANDOM() * Resources);
-        Unit[i] = int(RANDOM() * Max[Process[i]*Processes + Resource[i]]);
+        Process[i] = int(RANDOM() * PROCESSES);
+        Resource[i] = int(RANDOM() * RESOURCES);
+        Unit[i] = int(RANDOM() * MAX[Process[i]*PROCESSES + Resource[i]]);
     }
 
     //Alternate Requests and Releases
     for(int i = 0; i < 6; i++){
         if( i % 2 == 0){
-            Request();
+           Request(Unit[i], Resource[i], Process[i]);
         } else {
-            Release();
+           Release(Unit[i], Resource[i], Process[i]);
         }
     }
 }
 
-void Manual(int Max [], int Allocation [], int Available [], int Resources, int Processes){
+void ManualThread(){
     std::string cmd;
     int I,J,K;
     while(true){
@@ -63,7 +63,13 @@ void Manual(int Max [], int Allocation [], int Available [], int Resources, int 
     }
 }
 
-void Auto(int Max [], int Allocation [], int Available [], int Resources, int Processes){
+void Manual(){
+    std::thread ManualSimulation(ManualThread);
+    ManualSimulation.join();
+}
+
+
+void Auto(){
 
     //Automatic
     //create 1 thread for each n process 
@@ -73,11 +79,11 @@ void Auto(int Max [], int Allocation [], int Available [], int Resources, int Pr
     //terminate the program after all threads are done
 
     std::vector<std::thread> Pool;
-    for(int i = 0; i < Processes; i++){
+    for(int i = 0; i < PROCESSES; i++){
         Pool.push_back(std::thread(Bankers));
     }
 
-    for(int i = 0; i < Processes; i++){
+    for(int i = 0; i < PROCESSES; i++){
         Pool[i].join();
     }
     std::cout << "Auto Thread Finish";

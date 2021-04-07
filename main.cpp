@@ -3,6 +3,12 @@
 #include "detect.hpp"
 #include "banker.hpp"
 
+    static int * MAX;
+    static int * ALLOCATION;
+    static int * AVAILABLE;
+    static int RESOURCES;
+    static int PROCESSES;
+
 /*
 !!! !!!
  !!! !!!
@@ -73,11 +79,11 @@ int main(int argc, char* args[]){
         }
 
         //Get Data
-        int * Max = GetMax(Setup);
-        int * Allocation = GetAllocation(Setup);
-        int * Available = GetAvailable(Setup);
-        int Resources = GetResources(Setup);
-        int Processes = GetProcesses(Setup);
+        MAX = GetMax(Setup);
+        ALLOCATION = GetAllocation(Setup);
+        AVAILABLE = GetAvailable(Setup);
+        RESOURCES = GetResources(Setup);
+        PROCESSES = GetProcesses(Setup);
         int method = 0;
 
         std::cout << Type;
@@ -94,12 +100,12 @@ int main(int argc, char* args[]){
         switch (method) {
 
             case 1:
-                Manual(Max, Allocation, Available, Resources, Processes);
+                Manual();
                 std::cout << std::endl << "Manual" << std::endl;
                 break;
 
             case 2:
-                Auto(Max, Allocation, Available, Resources, Processes);
+                Auto();
                 std::cout << std::endl << "Automatic" << std::endl; 
                 break;
 
