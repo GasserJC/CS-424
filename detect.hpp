@@ -167,28 +167,45 @@ int* GetNeed(std::string data[]){
 }
 
 bool HasSafeState(){
-       //Perform Check
-       for(int p = 0; p < PROCESSES; p++){
-              for(int R = 0; R < RESOURCES; R++){
-                     if(ALLOCATION[p*PROCESSES + R] > MAX[p*PROCESSES + R]){
-                            std::cout << "***";
-                            return false;
+       bool * Finished = new bool[PROCESSES];
+       int * Work = new int[RESOURCES];
+       bool Safe = false;
+       
+       for(int i = 0; i < PROCESSES; i++){
+              Finished[i] = false;
+       }
+       for(int i = 0; i < RESOURCES; i++){
+              Work[i] = AVAILABLE[i];
+       }
+
+       //static deadlock check
+       for(int i = 0; i < PROCESSES; i++){
+              if(!Finished[i]){
+                     int tmp = 0;
+                     while(NEED[i*PROCESSES + tmp] <= Work[tmp] || tmp < RESOURCES){
+                            tmp++;
+                     }
+                     if(tmp == RESOURCES){
+                            for(int j = 0; j < RESOURCES; j++){
+                                   Work[j] += ALLOCATION[i*PROCESSES + j];
+                            }
+                            Finished[i] = true;
+                            i--;
                      }
               }
        }
-       for(int R = 0; R < RESOURCES; R++){
-              int sum = 0;
-              for(int p = 0; p < PROCESSES; p++){
-                     sum += ALLOCATION[p*PROCESSES + R];
-              }
-              sum += AVAILABLE[R];
-              if(sum > AVAILABLE[R]){
-                     std::cout << "???";
-                     return false;
-              }
+
+       int tmp = 0;
+       while(Finished[tmp] != false || tmp < PROCESSES){
+              tmp++;
+       }
+       if(PROCESSES == tmp){
+              Safe = true;
        }
 
-       return true;
+       delete[] Finished;
+       delete[] Work;
+       return Safe;
 }
 
 void print(){
