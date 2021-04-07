@@ -35,6 +35,14 @@ void Request(int I,int J,int K, int ID){
 
 void Release(int I,int J,int K, int ID){
     //process K releases for I many resources of resource J
+    Lock.lock();
+
+    if((ALLOCATION[K*PROCESSES + J] - I)){
+        ALLOCATION[K*PROCESSES + J] -= I;
+        AVAILABLE[J] += I;
+    }
+
+    Lock.unlock();
 }
 
 void Bankers(int ID){
