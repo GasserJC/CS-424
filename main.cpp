@@ -3,6 +3,23 @@
 #include "detect.hpp"
 #include "banker.hpp"
 
+/*
+!!! !!!
+ !!! !!!
+  !!! !!!
+
+    File Purposes:
+            banker.hpp      =>  Contains all the resource and threading.
+            detect.hpp      =>  Safe State Testing.
+            Rando.hpp       =>  A File with thread safe Random Number Generator.
+            Semaphore.hpp   =>  Mutex Locking.
+            setup.txt       =>  Input with specific structure for resource/process state.
+            main.cpp        =>  main abstraction of program.
+
+  !!! !!!
+ !!! !!!
+!!! !!!
+*/
 
 static std::string Setup[15];
 
