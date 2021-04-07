@@ -63,8 +63,10 @@ int main(int argc, char* args[]){
         int Processes = GetProcesses(Setup);
         int method = 0;
 
+        std::cout << Type;
+
         //Account for user choice
-        if(Type == "manual" || "Manual"){
+        if(Type == "manual" || Type == "Manual"){
             method = 1;
         } 
         else if(Type == "Automatic" || Type == "Auto" || Type == "auto" || Type == "automatic"){
