@@ -37,7 +37,7 @@ void Release(int I,int J,int K, int ID){
     //process K releases for I many resources of resource J
     Lock.lock();
 
-    if((ALLOCATION[K*PROCESSES + J] - I)){
+    if((ALLOCATION[K*PROCESSES + J] - I) >= 0){
         ALLOCATION[K*PROCESSES + J] -= I;
         AVAILABLE[J] += I;
     }
