@@ -5,10 +5,14 @@
 #include <thread>
 #include "Rando.hpp"
 #include "detect.hpp"
+#include "Semaphore.hpp"
+
+Semaphore Lock(1);
 
 void Request(int I,int J,int K, int ID){
-    std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;
+    std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;   
 
+    Lock.wait();
     //process K makes a request for I many resources of resource J
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
 
@@ -27,6 +31,7 @@ void Request(int I,int J,int K, int ID){
     } else {
         std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " from " << ID;
     }
+    Lock.signal();
 }
 
 void Release(int I,int J,int K, int ID){
