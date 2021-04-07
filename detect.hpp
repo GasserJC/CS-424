@@ -159,6 +159,7 @@ bool HasSafeState(){
        delete[] Work;
        return Safe;
 }
+
 bool HasSafeState(std::string data[]){
        //init resources and processes
        int resources = (int)data[0][0] - 48;
@@ -199,6 +200,14 @@ bool HasSafeState(std::string data[]){
 }
 
 void print(){
+       std::cout << "\n--- Max Array ---\n";
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){
+                     std::cout << MAX[p*PROCESSES + R] << "     ";
+              }
+              std::cout << std::endl;
+       }
+
        std::cout << "\n--- Allocated Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){      
