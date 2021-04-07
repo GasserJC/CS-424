@@ -96,6 +96,7 @@ int main(int argc, char* args[]){
         switch (method) {
 
             case 1:
+                print();
                 Manual();
                 print();
                 std::cout << std::endl << "Manual" << std::endl;
