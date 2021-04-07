@@ -59,7 +59,7 @@ void ManualThread(){
     std::string cmd;
     int I,J,K;
     while(true){
-        std::cout << "Enter Request:";
+        std::cout << std::endl; << "Enter Request:";
         std::getline(std::cin, cmd);
 
         if(cmd[0] == 'r'){
@@ -76,13 +76,13 @@ void ManualThread(){
                     Release(I,J,K);
                 }   
             } catch (...){ //impropper user input
-                std::cout << "impropper user input \n options are: \n request I of J for K \n release I of J for K \n end \n";
+                std::cout << "\nimpropper user input \n options are: \n request I of J for K \n release I of J for K \n end \n";
             }
         } else if(cmd == "end"){ //user wants to end
-            std::cout << "Ending Manual Mode.";
+            std::cout << "\nEnding Manual Mode.";
             break;
         } else {
-            std::cout << "impropper user input \n options are: \n request I of J for K \n release I of J for K \n end \n";
+            std::cout << "\nimpropper user input \n options are: \n request I of J for K \n release I of J for K \n end \n";
         }
     }
 }
