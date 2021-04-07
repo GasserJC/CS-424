@@ -186,7 +186,7 @@ bool HasSafeState(std::string data[]){
 
        //init Available
        Available = TextToIntArr(3,resources,data);
-
+ 
        std::cout << "\n--- Allocated Array ---\n";
        for(int p = 0; p < processes; p++){
               for(int R = 0; R < resources; R++){      
