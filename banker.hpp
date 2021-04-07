@@ -124,7 +124,7 @@ void Auto(){
     for(int i = 0; i < PROCESSES; i++){
         Pool[i].join();
     }
-    std::cout << "Auto Thread Finish";
+    std::cout << "\nAuto Thread Finish";
 }
 
 #endif
