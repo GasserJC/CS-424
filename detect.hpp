@@ -70,7 +70,7 @@ int* GetAllocation(std::string data[]){
 
 int* GetMax(std::string data[]){
        int * Max = new int [PROCESSES*RESOURCES];
-
+       std::cout << std::endl;
        //init max
        for(int i = 0; i < PROCESSES; i++){
               int* tmp = GetNum(i+5, data);
