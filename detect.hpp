@@ -198,6 +198,7 @@ bool HasSafeState(std::string data[]){
               }
               std::cout << std::endl;
        }
+       
        //init allocation
        for(int i = 0; i < processes; i++){
               int* tmp = GetNum(6+processes, data);
