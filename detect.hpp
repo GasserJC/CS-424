@@ -179,10 +179,11 @@ bool HasSafeState(std::string data[]){
        //init resources and processes
        int resources = (int)data[0][0] - 48;
        int processes = (int)data[1][0] - 48;
-       int * Max = new int [processes*resources];
-       int * Allocation = new int [processes*resources];
-       int * Available = new int [resources];
+       int * Max = GetMax(data);
+       int * Allocation = GetAllocation(data);
+       int * Available = GetAvailable(data);
 
+       /*
        //init max
        for(int i = 0; i < processes; i++){
               int* tmp = GetNum(i+5, data);
@@ -204,7 +205,7 @@ bool HasSafeState(std::string data[]){
 
        //init Available
        Available = GetNum(3,data);
- 
+       */
        std::cout << "\n--- Allocated Array ---\n";
        for(int p = 0; p < processes; p++){
               for(int R = 0; R < resources; R++){      
