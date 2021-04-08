@@ -27,7 +27,7 @@ int* GetNum(int line, std::string data[]){
        for(int i = 0; i < tmp.size() ; i++){
               std::cout << RtrArr[i] << " ";
        }
-       std::cout <<"------" << std::endl;
+       std::cout<< std::endl <<"------" ;
        return RtrArr;
 }
 
