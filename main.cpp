@@ -76,13 +76,6 @@ int main(int argc, char* args[]){
             return -1;
         }
 
-        //Get Data
-        MAX = GetMax(Setup);
-        ALLOCATION = GetAllocation(Setup);
-        AVAILABLE = GetAvailable(Setup);
-        RESOURCES = GetResources(Setup);
-        PROCESSES = GetProcesses(Setup);
-        NEED = GetNeed(Setup);
         int method = 0;
 
 

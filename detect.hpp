@@ -176,55 +176,32 @@ bool HasSafeState(){
 }
 
 bool HasSafeState(std::string data[]){
-       //init resources and processes
-       int resources = (int)data[0][0] - 48;
-       int processes = (int)data[1][0] - 48;
-       int * Max = GetMax(data);
-       int * Allocation = GetAllocation(data);
-       int * Available = GetAvailable(data);
-
-       /*
-       //init max
-       for(int i = 0; i < processes; i++){
-              int* tmp = GetNum(i+5, data);
-              for(int j = 0; j < resources; j++){
-                     Max[i*resources + j] = tmp[j];
-              }
-              for(int j = 0; j < resources; j++){
-                     std::cout << Max[i*resources + j];
-              }
-       }
-
-       //init allocation
-       for(int i = 0; i < processes; i++){
-              int* tmp = GetNum(6+processes, data);
-              for(int j = 0; j < resources; j++){
-                     Allocation[i*resources + j] = tmp[j];
-              }
-       }
-
-       //init Available
-       Available = GetNum(3,data);
-       */
+       MAX = GetMax(Setup);
+       ALLOCATION = GetAllocation(Setup);
+       AVAILABLE = GetAvailable(Setup);
+       RESOURCES = (int)data[0][0] - 48;
+       PROCESSES = (int)data[1][0] - 48;
+       NEED = GetNeed(Setup);
+      
        std::cout << "\n--- Allocated Array ---\n";
-       for(int p = 0; p < processes; p++){
-              for(int R = 0; R < resources; R++){      
-                     std::cout << Allocation[p*processes + R] << "     ";
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){      
+                     std::cout << ALLOCATION[p*PROCESSES + R] << "     ";
               }
               std::cout << std::endl;
        }
-       std::cout << "\n--- Max Array ---\n";
-       for(int p = 0; p < processes; p++){
-              for(int R = 0; R < resources; R++){      
-                     std::cout << Allocation[p*processes + R] << "     ";
+       std::cout << "\n--- MAX Array ---\n";
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){      
+                     std::cout << ALLOCATION[p*PROCESSES + R] << "     ";
               }
               std::cout << std::endl;
        }
 
        //Perform Check
-       for(int p = 0; p < processes; p++){
-              for(int R = 0; R < resources; R++){
-                     if(Allocation[p*processes + R] > Max[p*processes + R]){
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){
+                     if(ALLOCATION[p*PROCESSES + R] > MAX[p*PROCESSES + R]){
                             
                             return false;
                      }
