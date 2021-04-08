@@ -15,7 +15,7 @@ int* GetNum(int line, std::string data[]){
        std::stringstream Stream(data[line]);
        std::vector<std::string> tmp;
        std::string Word;
-       std::cout << "stream ("<< Stream.str() << ")"<< std::endl;
+       std::cout << std::endl << "stream ("<< Stream.str() << ")"<< std::endl;
        while(Stream >> Word){
               tmp.push_back(Word);
        }
