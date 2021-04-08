@@ -58,10 +58,6 @@ int main(int argc, char* args[]){
             std::cout << "Error With Test Data File";
             return -1;
         }
-        
-        for(int i = 0; i < 15; i++){
-            std::cout << Setup[i];
-        }   
 
         //Run Check
         try{

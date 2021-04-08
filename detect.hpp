@@ -23,7 +23,7 @@ int* GetNum(int line, std::string data[]){
        for(int i = 0; i < tmp.size() ; i++){
               RtrArr[i] = std::stoi(tmp[i]);
        }
-       std::cout << std::endl;
+       std::cout << std::endl << "------" << std::endl;
        for(int i = 0; i < tmp.size() ; i++){
               std::cout << RtrArr[i] << " ";
        }
