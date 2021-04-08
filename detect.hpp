@@ -188,7 +188,7 @@ bool HasSafeState(std::string data[]){
               int* tmp = GetNum(i+5, data);
               for(int j = 0; j < resources; j++){
                      Max[i*resources + j] = tmp[j];
-                     std::cout << tmp[j];
+                     std::cout << Max[i*resources + j]
               }
        }
 
