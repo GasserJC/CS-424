@@ -15,13 +15,13 @@ int* GetNum(int line, std::string data[]){
        std::stringstream Stream(data[line]);
        std::vector<std::string> tmp;
        std::string Word;
+       std::cout << Stream.str() << std::endl;
        while(Stream >> Word){
               tmp.push_back(Word);
        }
        int * RtrArr = new int[tmp.size()];
        for(int i = 0; i < tmp.size() ; i++){
               RtrArr[i] = std::stoi(tmp[i]);
-              std::cout << RtrArr[i] << std::endl;
        }
        return RtrArr;
 }
