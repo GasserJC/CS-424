@@ -176,12 +176,12 @@ bool HasSafeState(){
 }
 
 bool HasSafeState(std::string data[]){
-       MAX = GetMax(Setup);
-       ALLOCATION = GetAllocation(Setup);
-       AVAILABLE = GetAvailable(Setup);
+       MAX = GetMax(data);
+       ALLOCATION = GetAllocation(data);
+       AVAILABLE = GetAvailable(data);
        RESOURCES = (int)data[0][0] - 48;
        PROCESSES = (int)data[1][0] - 48;
-       NEED = GetNeed(Setup);
+       NEED = GetNeed(data);
       
        std::cout << "\n--- Allocated Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
