@@ -2,6 +2,7 @@
 #define DETECT
 #include <string>
 #include <vector>
+#include <sstream>
 
 static int * MAX;
 static int * ALLOCATION;
@@ -9,6 +10,20 @@ static int * AVAILABLE;
 static int * NEED;
 static int RESOURCES;
 static int PROCESSES;
+
+int* StringStream(int line, std::string data[]){
+       std::stringstream Stream(data[line]);
+       std::vector<std::string> tmp;
+       std::string Word;
+       while(Stream >> Word){
+              tmp.push_back(Word);
+       }
+       int * RtrArr = new int[tmp.size()];
+       for(int i = 0; i < tmp.size() ; i++){
+              RtrArr[i] = std::stoi(tmp[i]);
+       }
+       return RtrArr;
+}
 
 //returns int array of a text file deliminated by spaces.
 int * TextToIntArr(int line, int width, std::string data[]){
@@ -59,7 +74,7 @@ int* GetAllocation(std::string data[]){
 
        //init allocation
        for(int i = 0; i < processes; i++){
-              int* tmp = TextToIntArr(6+processes,resources, data);
+              int* tmp = StringStream(6+processes, data);
               for(int j = 0; j < resources; j++){
                      Allocation[i*resources + j] = tmp[j];
               }
@@ -75,7 +90,7 @@ int* GetMax(std::string data[]){
 
        //init max
        for(int i = 0; i < processes; i++){
-              int* tmp = TextToIntArr(i+5,resources, data);
+              int* tmp = StringStream(i+5, data);
               for(int j = 0; j < resources; j++){
                      Max[i*resources + j] = tmp[j];
               }
@@ -89,7 +104,7 @@ int* GetAvailable(std::string data[]){
        int processes = (int)data[1][0] - 48;
        int * Available = new int [processes*resources];
 
-       Available = TextToIntArr(3,resources,data);
+       Available = StringStream(3,data);
 
        return Available;
 }
@@ -170,7 +185,7 @@ bool HasSafeState(std::string data[]){
 
        //init max
        for(int i = 0; i < processes; i++){
-              int* tmp = TextToIntArr(i+5,resources, data);
+              int* tmp = StringStream(i+5, data);
               for(int j = 0; j < resources; j++){
                      Max[i*resources + j] = tmp[j];
               }
@@ -178,14 +193,14 @@ bool HasSafeState(std::string data[]){
 
        //init allocation
        for(int i = 0; i < processes; i++){
-              int* tmp = TextToIntArr(6+processes,resources, data);
+              int* tmp = StringStream(6+processes, data);
               for(int j = 0; j < resources; j++){
                      Allocation[i*resources + j] = tmp[j];
               }
        }
 
        //init Available
-       Available = TextToIntArr(3,resources,data);
+       Available = StringStream(3,data);
  
        std::cout << "\n--- Allocated Array ---\n";
        for(int p = 0; p < processes; p++){
