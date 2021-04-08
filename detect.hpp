@@ -82,6 +82,7 @@ int* GetMax(std::string data[]){
               for(int j = 0; j < RESOURCES; j++){
                      Max[i*RESOURCES + j] = tmp[j];
               }
+              delete[] tmp;
        }
 
        return Max;
