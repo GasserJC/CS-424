@@ -21,7 +21,6 @@ int* GetNum(int line, std::string data[]){
        int * RtrArr = new int[tmp.size()];
        for(int i = 0; i < tmp.size() ; i++){
               RtrArr[i] = std::stoi(tmp[i]);
-              std::cout << RtrArr[i];
        }
        return RtrArr;
 }
