@@ -185,7 +185,7 @@ bool HasSafeState(std::string data[]){
        std::cout << "\n--- MAX Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){      
-                     std::cout << ALLOCATION[p*PROCESSES + R] << "     ";
+                     std::cout << MAX[p*PROCESSES + R] << "     ";
               }
               std::cout << std::endl;
        }
