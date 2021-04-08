@@ -17,11 +17,11 @@ int* StringStream(int line, std::string data[]){
        std::string Word;
        while(Stream >> Word){
               tmp.push_back(Word);
-              std::cout << Word;
        }
        int * RtrArr = new int[tmp.size()];
        for(int i = 0; i < tmp.size() ; i++){
               RtrArr[i] = std::stoi(tmp[i]);
+              std::cout << RtrArr[i];
        }
        return RtrArr;
 }
