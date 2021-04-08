@@ -77,7 +77,6 @@ int* GetAllocation(std::string data[]){
               int* tmp = GetNum(6+processes, data);
               for(int j = 0; j < resources; j++){
                      Allocation[i*resources + j] = tmp[j];
-                     std::cout << tmp[j];
               }
        }
 
@@ -189,6 +188,7 @@ bool HasSafeState(std::string data[]){
               int* tmp = GetNum(i+5, data);
               for(int j = 0; j < resources; j++){
                      Max[i*resources + j] = tmp[j];
+                     std::cout << tmp[j];
               }
        }
 
