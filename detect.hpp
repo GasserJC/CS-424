@@ -54,30 +54,14 @@ int * TextToIntArr(int line, int width, std::string data[]){
        return returnArr;
 }
 
-/*
-func HasSafeState():
-
-   getData
-
-   For each process p in each resource R
-           if( not (Allocation[p][R] <= Max[p][R]))
-                  return false
-           if( not (Sum(Allocation[R]  row) + Available[R] == [Total[R]] ))
-                  return false               
-   return true
-*/
-
-
 int* GetAllocation(std::string data[]){
-       int resources = (int)data[0][0] - 48;
-       int processes = (int)data[1][0] - 48;
-       int * Allocation = new int [processes*resources];
+       int * Allocation = new int [PROCESSES*RESOURCES];
 
        //init allocation
-       for(int i = 0; i < processes; i++){
-              int* tmp = GetNum(6+processes, data);
-              for(int j = 0; j < resources; j++){
-                     Allocation[i*resources + j] = tmp[j];
+       for(int i = 0; i < PROCESSES; i++){
+              int* tmp = GetNum(6+PROCESSES, data);
+              for(int j = 0; j < RESOURCES; j++){
+                     Allocation[i*RESOURCES + j] = tmp[j];
               }
        }
 
@@ -85,15 +69,13 @@ int* GetAllocation(std::string data[]){
 }
 
 int* GetMax(std::string data[]){
-       int resources = (int)data[0][0] - 48;
-       int processes = (int)data[1][0] - 48;
-       int * Max = new int [processes*resources];
+       int * Max = new int [PROCESSES*RESOURCES];
 
        //init max
-       for(int i = 0; i < processes; i++){
+       for(int i = 0; i < PROCESSES; i++){
               int* tmp = GetNum(i+5, data);
-              for(int j = 0; j < resources; j++){
-                     Max[i*resources + j] = tmp[j];
+              for(int j = 0; j < RESOURCES; j++){
+                     Max[i*RESOURCES + j] = tmp[j];
               }
        }
 
@@ -101,9 +83,8 @@ int* GetMax(std::string data[]){
 }
 
 int* GetAvailable(std::string data[]){
-       int resources = (int)data[0][0] - 48;
-       int processes = (int)data[1][0] - 48;
-       int * Available = new int [processes*resources];
+
+       int * Available = new int [RESOURCES];
 
        Available = GetNum(3,data);
 
@@ -176,12 +157,26 @@ bool HasSafeState(){
        return Safe;
 }
 
+/*
+func HasSafeState():
+
+   getData
+
+   For each process p in each resource R
+           if( not (Allocation[p][R] <= Max[p][R]))
+                  return false
+           if( not (Sum(Allocation[R]  row) + Available[R] == [Total[R]] ))
+                  return false               
+   return true
+*/
+
+
 bool HasSafeState(std::string data[]){
+       RESOURCES = (int)data[0][0] - 48;
+       PROCESSES = (int)data[1][0] - 48;
        MAX = GetMax(data);
        ALLOCATION = GetAllocation(data);
        AVAILABLE = GetAvailable(data);
-       RESOURCES = (int)data[0][0] - 48;
-       PROCESSES = (int)data[1][0] - 48;
        NEED = GetNeed(data);
       
        std::cout << "\n--- Allocated Array ---\n";
