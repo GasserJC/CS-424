@@ -100,15 +100,11 @@ int GetProcesses(std::string data[]){
 }
 
 int* GetNeed(std::string data[]){
-       int resources = (int)data[0][0] - 48;
-       int processes = (int)data[1][0] - 48;
-       int * Max = GetMax(data);
-       int * Allocation = GetAllocation(data);
-       int * Need = new int[processes*resources];
+       int * Need = new int[PROCESSES*RESOURCES];
 
-       for(int i = 0; i < processes; i++){
-              for(int j = 0; j < resources; j++){
-                     Need[i*processes+j] = Max[i*processes+j] - Allocation[i*processes+j];
+       for(int i = 0; i < PROCESSES; i++){
+              for(int j = 0; j < RESOURCES; j++){
+                     Need[i*PROCESSES+j] = MAX[i*PROCESSES+j] - ALLOCATION[i*PROCESSES+j];
               }
        }
 
