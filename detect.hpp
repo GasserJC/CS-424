@@ -15,7 +15,7 @@ int* GetNum(int line, std::string data[]){
        std::stringstream Stream(data[line]);
        std::vector<std::string> tmp;
        std::string Word;
-       std::cout << Stream.str() << std::endl;
+       std::cout << "stream ("<< Stream.str() << ")"<< std::endl;
        while(Stream >> Word){
               tmp.push_back(Word);
        }
@@ -27,6 +27,7 @@ int* GetNum(int line, std::string data[]){
        for(int i = 0; i < tmp.size() ; i++){
               std::cout << RtrArr[i] << " ";
        }
+       std::cout <<"------" << std::endl;
        return RtrArr;
 }
 
