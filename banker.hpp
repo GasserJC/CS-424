@@ -15,15 +15,15 @@ void Request(int I,int J,int K, int ID){
     REL.lock();
     std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;   
     //process K makes a request for I many resources of resource J
-    if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
+    if(I <= NEED[K*RESOURCES + J] || I <= AVAILABLE[K*RESOURCES + J]){
 
         //Grant Request   
-        ALLOCATION[K*PROCESSES + J] += I;
+        ALLOCATION[K*RESOURCES + J] += I;
         AVAILABLE[J] -= I;
 
         if(!HasSafeState()){
             //Undo Request
-            ALLOCATION[K*PROCESSES + J] -= I;
+            ALLOCATION[K*RESOURCES + J] -= I;
             AVAILABLE[J] += I;
             std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.0 !!!" << " from " << ID << " Failed the Safety Check.";
         } else {
@@ -41,8 +41,8 @@ void Release(int I,int J,int K, int ID){
     REQ.lock();
     REL.lock();
 
-    if( (ALLOCATION[K*PROCESSES + J] - I) >= 0){
-        ALLOCATION[K*PROCESSES + J] -= I;
+    if( (ALLOCATION[K*RESOURCES + J] - I) >= 0){
+        ALLOCATION[K*RESOURCES + J] -= I;
         AVAILABLE[J] += I;
         std::cout << "\nRelease " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID << " Available[" << J<< "] = " << AVAILABLE[J]; 
     } else {
