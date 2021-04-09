@@ -137,7 +137,7 @@ bool HasSafeState(){
 }
 
 */
-bool safetyAlgorithm() {
+bool HasSafeState() {
     bool *finish = new bool[PROCESSES];
     int *work = new int[RESOURCES];
     bool safe = false;
@@ -177,7 +177,7 @@ bool safetyAlgorithm() {
 }
 
 
-
+/*
 bool HasSafeState(){
        bool * Finished = new bool[PROCESSES];
        int * Work = new int[RESOURCES];
