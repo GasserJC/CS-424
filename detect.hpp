@@ -107,7 +107,7 @@ int* GetNeed(){
        return Need;
 }
 
-/*
+
 bool HasSafeState(){
        std::cout << "non-init";
        bool *finish = new bool[PROCESSES];
@@ -144,11 +144,10 @@ bool HasSafeState(){
        delete[] work;
        return safe;
 }
-*/
 
 
+/*
 bool HasSafeState(){
-       //NEED = GetNeed();
        bool * Finished = new bool[PROCESSES];
        int * Work = new int[RESOURCES];
        bool Safe = false;
@@ -190,7 +189,7 @@ bool HasSafeState(){
        return Safe;
 }
 
-
+*/
 
 
 /*
