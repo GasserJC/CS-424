@@ -94,7 +94,6 @@ int* GetMax(std::string data[]){
               std::cout << std::endl;
        }
 
-       delete[] tmp;
        return Max;
 }
 
