@@ -108,27 +108,44 @@ int* GetNeed(){
 }
 
 bool HasSafeState() {
+    bool *finish = new bool[PROCESSES];
+    int *work = new int[RESOURCES];
+    bool safe = false;
 
-bool safe = false;bool *finish = new bool[PROCESSES];int *work = new int[RESOURCES];
+    for(int i=0;i<PROCESSES;i++) { 
+           finish[i] = false; 
+       } 
+    for(int i=0;i<RESOURCES;i++) { work[i] = AVAILABLE[i]; } // Initalizes work to be a copy of available
 
-for(int i=0;i<PROCESSES;i++) { finish[i] = false; } 
+    // Checks to see if processes needs can be achieved without deadlock
+    for (int i=0;i<PROCESSES;i++) {
+        if(finish[i] == false) {
+            int counter;
+            for(counter = 0; counter < RESOURCES; counter++) {
+                if(NEED[i*RESOURCES + counter] > work[counter]) {
+                    break;
+                }
+            }
+            if(counter == RESOURCES) {
+                for(int j=0;j<RESOURCES;j++) {
+                    work[j] += ALLOCATION[i*RESOURCES + j];
+                }
+                finish[i] = true;
+                i = -1;
+            }
+        }
+    }
 
-for(int i=0;i<RESOURCES;i++) { work[i] = AVAILABLE[i]; }
+    int counter = 0;
+    for(counter=0;counter<PROCESSES;counter++) {
+        if(finish[counter] == false) { break; }
+    }
+    if(counter == PROCESSES) { safe = true; } // Means the needs of the processes were met
 
-for (int i=0;i<PROCESSES;i++) { if(finish[i] == false) { int tmp; for(tmp = 0; tmp < RESOURCES; tmp++) { if(NEED[i*RESOURCES + tmp] > work[tmp]) { break; } } if(tmp == RESOURCES) { for(int j=0;j<RESOURCES;j++) { work[j] += ALLOCATION[i*RESOURCES + j]; } finish[i] = true; i--; } }}
-
-int tmp = 0;
-
-for(tmp=0;tmp<PROCESSES;tmp++) { if(finish[tmp] == false) {break;}}
-
-if(tmp == PROCESSES) { safe = true; }
-
-delete[] finish;
-
-delete[] work;
-
-return safe;
-
+    // Clean up dynamically allocated arrays and return safe
+    delete[] finish;
+    delete[] work;
+    return safe;
 }
 
 /*
