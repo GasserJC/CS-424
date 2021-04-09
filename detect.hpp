@@ -193,6 +193,7 @@ bool HasSafeState(std::string data[]){
        MAX = GetMax(data);
        ALLOCATION = GetAllocation(data);
        AVAILABLE = GetAvailable(data);
+       std::cout << "=======>>>>>" << AVAILABLE[2] << "<<<<======";
        NEED = GetNeed(data);
       
        std::cout << "\n--- Allocated Array ---\n";
