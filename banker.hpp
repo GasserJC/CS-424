@@ -25,7 +25,7 @@ void Request(int I,int J,int K, int ID){
             //Undo Request
             ALLOCATION[K*PROCESSES + J] -= I;
             AVAILABLE[J] += I;
-            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.0 !!!" << " from " << ID << " Failed the Safety Check." << "  Av2=" << AVAILABLE[2]; 
+            std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.0 !!!" << " from " << ID << " Failed the Safety Check.";
         } else {
             std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID;
         }
@@ -41,9 +41,12 @@ void Release(int I,int J,int K, int ID){
     REQ.lock();
     REL.lock();
 
-    if((ALLOCATION[K*PROCESSES + J] - I) >= 0){
+    if( (ALLOCATION[K*PROCESSES + J] - I) >= 0){
         ALLOCATION[K*PROCESSES + J] -= I;
         AVAILABLE[J] += I;
+        std::cout << "\nRelease " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID << " Available[" << J<< "] = " << AVAILABLE[J]; 
+    } else {
+        std::cout << "\nRelease " << I << " of " << J << " for " << K << " !!! FAILED !!!" << " from " << ID << " Available[" << J<< "] = " << AVAILABLE[J]; 
     }
 
     REQ.unlock();
