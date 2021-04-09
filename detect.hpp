@@ -81,6 +81,7 @@ int* GetMax(std::string data[]){
        int* tmp;
        for(int i = 0; i < PROCESSES; i++){
               tmp = GetNum(i+5, data);
+              std::cout << tmp[0] << "_" <<tmp[1] <<"_" << tmp[2]
               for(int j = 0; j < RESOURCES; j++){
                      Max[i*PROCESSES + j] = tmp[j];
               }
