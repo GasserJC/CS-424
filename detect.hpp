@@ -80,7 +80,7 @@ int* GetMax(std::string data[]){
                      if(i == 4){
                             std::cout << std::endl << tmp[0] << "_" <<tmp[1] <<"_" << tmp[2]<< std::endl;
                      }
-                     Max[i*PROCESSES + j] = tmp[j];
+                     Max[i*RESOURCES + j] = tmp[j];
               }
               if(i == 4){
                      std::cout << std::endl<< "--------> " <<  Max[9]  << "_" << Max[10]  <<"_" <<  Max[11] << std::endl;
@@ -90,7 +90,7 @@ int* GetMax(std::string data[]){
         for(int i = 0; i < PROCESSES; i++){
               tmp = GetNum(i+5, data);
               for(int j = 0; j < RESOURCES; j++){
-                     std::cout << Max[i*PROCESSES + j] << "     ";
+                     std::cout << Max[i*RESOURCES + j] << "     ";
               }
               std::cout << std::endl;
        }
@@ -120,7 +120,7 @@ int* GetNeed(std::string data[]){
 
        for(int i = 0; i < PROCESSES; i++){
               for(int j = 0; j < RESOURCES; j++){
-                     Need[i*PROCESSES+j] = MAX[i*PROCESSES+j] - ALLOCATION[i*PROCESSES+j];
+                     Need[i*RESOURCES+j] = MAX[i*RESOURCES+j] - ALLOCATION[i*RESOURCES+j];
               }
        }
 
@@ -143,12 +143,12 @@ bool HasSafeState(){
        for(int i = 0; i < PROCESSES; i++){
               if(!Finished[i]){
                      int tmp = 0;
-                     while(NEED[i*PROCESSES + tmp] <= Work[tmp] || tmp < RESOURCES){
+                     while(NEED[i*RESOURCES + tmp] <= Work[tmp] || tmp < RESOURCES){
                             tmp++;
                      }
                      if(tmp == RESOURCES){
                             for(int j = 0; j < RESOURCES; j++){
-                                   Work[j] += ALLOCATION[i*PROCESSES + j];
+                                   Work[j] += ALLOCATION[i*RESOURCES + j];
                             }
                             Finished[i] = true;
                             i--;
@@ -194,14 +194,14 @@ bool HasSafeState(std::string data[]){
        std::cout << "\n--- Allocated Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){      
-                     std::cout << ALLOCATION[p*PROCESSES + R] << "     ";
+                     std::cout << ALLOCATION[p*RESOURCES + R] << "     ";
               }
               std::cout << std::endl;
        }
        std::cout << "\n--- MAX Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){      
-                     std::cout << MAX[p*PROCESSES + R] << "     ";
+                     std::cout << MAX[p*RESOURCES + R] << "     ";
               }
               std::cout << std::endl;
        }
@@ -209,7 +209,7 @@ bool HasSafeState(std::string data[]){
        //Perform Check
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){
-                     if(ALLOCATION[p*PROCESSES + R] > MAX[p*PROCESSES + R]){
+                     if(ALLOCATION[p*RESOURCES + R] > MAX[p*RESOURCES + R]){
                             
                             return false;
                      }
@@ -222,7 +222,7 @@ void print(){
        std::cout << "\n--- Max Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){
-                     std::cout << MAX[p*PROCESSES + R] << "     ";
+                     std::cout << MAX[p*RESOURCES + R] << "     ";
               }
               std::cout << std::endl;
        }
@@ -230,7 +230,7 @@ void print(){
        std::cout << "\n--- Allocated Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){      
-                     std::cout << ALLOCATION[p*PROCESSES + R] << "     ";
+                     std::cout << ALLOCATION[p*RESOURCES + R] << "     ";
               }
               std::cout << std::endl;
        }
