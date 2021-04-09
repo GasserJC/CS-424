@@ -15,7 +15,7 @@ void Request(int I,int J,int K, int ID){
     REL.lock();
     std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;   
     //process K makes a request for I many resources of resource J
-    if(I <= NEED[K*RESOURCES + J] && I <= AVAILABLE[K*RESOURCES + J]){
+    if(I > NEED[K*RESOURCES + J] && I > AVAILABLE[K*RESOURCES + J]){
         //Grant Request   
         ALLOCATION[K*RESOURCES + J] += I;
         AVAILABLE[J] -= I;
