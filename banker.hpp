@@ -20,11 +20,13 @@ void Request(int I,int J,int K, int ID){
         //Grant Request   
         ALLOCATION[K*RESOURCES + J] += I;
         AVAILABLE[J] -= I;
+        NEED[K*RESOURCES + J] -= I;
 
         if(!HasSafeState()){
             //Undo Request
             ALLOCATION[K*RESOURCES + J] -= I;
             AVAILABLE[J] += I;
+            NEED[K*RESOURCES + J] += I;
             std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.0 !!!" << " from " << ID << " Failed the Safety Check.";
         } else {
             std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! PASSED !!!" << " from " << ID;
