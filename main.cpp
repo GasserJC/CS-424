@@ -68,7 +68,7 @@ int main(int argc, char* args[]){
                 std::cout << std::endl << "The State is Safe." << std::endl;
             }   
         } catch (int exp) {
-            std::cout << std::endl << "The State is Unsafe." << std::endl;
+            std::cout << std::endl << "The State Errored to become Unsafe." << std::endl;
             return -1;
         }
 
