@@ -56,15 +56,14 @@ int * TextToIntArr(int line, int width, std::string data[]){
 
 int* GetAllocation(std::string data[]){
        int * Allocation = new int [PROCESSES*RESOURCES];
-
        //init allocation
+       int* tmp;
        for(int i = 0; i < PROCESSES; i++){
-              int* tmp = GetNum(6+PROCESSES, data);
+              tmp = GetNum(6+i, data);
               for(int j = 0; j < RESOURCES; j++){
                      Allocation[i*RESOURCES + j] = tmp[j];
               }
        }
-
        return Allocation;
 }
 
@@ -75,7 +74,6 @@ int* GetMax(std::string data[]){
        for(int i = 0; i < PROCESSES; i++){
               tmp = GetNum(i+5, data);
               for(int j = 0; j < RESOURCES; j++){
-
                      Max[i*RESOURCES + j] = tmp[j];
               }
 
