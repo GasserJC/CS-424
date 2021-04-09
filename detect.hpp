@@ -108,7 +108,16 @@ int* GetNeed(std::string data[]){
 
        return Need;
 }
+/*
+bool HasSafeState(){
+       bool *finish = new bool[PROCESSES];
+       bool *work = new bool[RESOURCES];
+       bool safe = false;
 
+       for(int i)
+}
+
+*/
 bool HasSafeState(){
        bool * Finished = new bool[PROCESSES];
        int * Work = new int[RESOURCES];
@@ -125,7 +134,7 @@ bool HasSafeState(){
        for(int i = 0; i < PROCESSES; i++){
               if(!Finished[i]){
                      int tmp = 0;
-                     while(NEED[i*RESOURCES + tmp] <= Work[tmp] || tmp < RESOURCES){
+                     while(NEED[i*RESOURCES + tmp] <= Work[tmp] && tmp < RESOURCES){
                             tmp++;
                      }
                      if(tmp == RESOURCES){
@@ -139,7 +148,7 @@ bool HasSafeState(){
        }
 
        int tmp = 0;
-       while(Finished[tmp] != false || tmp < PROCESSES){
+       while(Finished[tmp] != false && tmp < PROCESSES){
               tmp++;
        }
        if(PROCESSES == tmp){
@@ -197,7 +206,6 @@ bool HasSafeState(std::string data[]){
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){
                      if(ALLOCATION[p*RESOURCES + R] > MAX[p*RESOURCES + R]){
-                            std::cout << "============================";
                             return false;
                      }
               }
