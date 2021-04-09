@@ -125,7 +125,7 @@ bool HasSafeState(){
                                    break;
                             }
                      }
-                     if(counter == RESOURCES){
+                     if(counter == (RESOURCES-1)){
                             for(int j=0; j<RESOURCES;j++){
                                    work[j] += ALLOCATION[i*RESOURCES + j];
                             }
