@@ -103,6 +103,10 @@ int* GetAvailable(std::string data[]){
        int * Available = new int [RESOURCES];
 
        Available = GetNum(3,data);
+       std::cout << std::endl;
+       for(int i = 0; i < 3; i++){
+              std::cout << " " << Available[i];
+       }
 
        return Available;
 }
