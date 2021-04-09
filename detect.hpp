@@ -150,7 +150,7 @@ bool HasSafeState(){
 
 
 bool HasSafeState(){
-       NEED = GetNeed();
+       //NEED = GetNeed();
        bool * Finished = new bool[PROCESSES];
        int * Work = new int[RESOURCES];
        bool Safe = false;
