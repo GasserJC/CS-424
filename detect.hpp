@@ -66,7 +66,7 @@ int* GetAllocation(std::string data[]){
        for(int i = 0; i < PROCESSES; i++){
               int* tmp = GetNum(6+PROCESSES, data);
               for(int j = 0; j < RESOURCES; j++){
-                     Allocation[i*RESOURCES + j] = tmp[j];
+                     Allocation[i*PROCESSES + j] = tmp[j];
               }
        }
 
@@ -81,7 +81,7 @@ int* GetMax(std::string data[]){
        for(int i = 0; i < PROCESSES; i++){
               tmp = GetNum(i+5, data);
               for(int j = 0; j < RESOURCES; j++){
-                     Max[i*RESOURCES + j] = tmp[j];
+                     Max[i*PROCESSES + j] = tmp[j];
               }
        }
        std::cout << "\n--- MAX Array ---\n";
