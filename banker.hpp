@@ -7,10 +7,12 @@
 #include "detect.hpp"
 #include <mutex>
 
-std::mutex Lock;
+std::mutex REQ;
+std::mutex REL;
 
 void Request(int I,int J,int K, int ID){
-    Lock.lock();
+    REQ.lock();
+    REL.lock();
     std::cout << "\nRequest " << I << " of " << J << " for " << K << " FROM " << ID;   
     //process K makes a request for I many resources of resource J
     if(I <= NEED[K*PROCESSES + J] || I <= AVAILABLE[K*PROCESSES + J]){
@@ -30,19 +32,22 @@ void Request(int I,int J,int K, int ID){
     } else {
         std::cout << "\nRequest " << I << " of " << J << " for " << K << " !!! FAILED.1 !!!" << " from " << ID << " Failed to Request an acceptable amount.";
     }
-    Lock.unlock();
+    REQ.unlock();
+    REL.unlock();
 }
 
 void Release(int I,int J,int K, int ID){
     //process K releases for I many resources of resource J
-    Lock.lock();
+    REQ.lock();
+    REL.lock();
 
     if((ALLOCATION[K*PROCESSES + J] - I) >= 0){
         ALLOCATION[K*PROCESSES + J] -= I;
         AVAILABLE[J] += I;
     }
 
-    Lock.unlock();
+    REQ.unlock();
+    REL.unlock();
 }
 
 void Bankers(int ID){
