@@ -150,7 +150,7 @@ bool HasSafeState(){
 
 
 bool HasSafeState(){
-       //NEED = GetNeed();
+       NEED = GetNeed();
        bool * Finished = new bool[PROCESSES];
        int * Work = new int[RESOURCES];
        bool Safe = false;
@@ -166,11 +166,8 @@ bool HasSafeState(){
        for(int i = 0; i < PROCESSES; i++){
               if(!Finished[i]){
                      int tmp = 0;
-                     for(int j = 0; j < RESOURCES; j++){
-                            if(NEED[i*RESOURCES + j] > Work[j]){
-                                   tmp = j;
-                                   break;
-                            }
+                     while(NEED[i*RESOURCES + tmp] <= Work[tmp] && tmp < RESOURCES){
+                            tmp++;
                      }
                      if(tmp == RESOURCES){
                             for(int j = 0; j < RESOURCES; j++){
@@ -195,6 +192,7 @@ bool HasSafeState(){
        return Safe;
 }
 
+*/
 
 
 /*
