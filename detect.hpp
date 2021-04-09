@@ -197,7 +197,7 @@ bool HasSafeState(std::string data[]){
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){
                      if(ALLOCATION[p*RESOURCES + R] > MAX[p*RESOURCES + R]){
-                            std::cout << "============================" <<;
+                            std::cout << "============================";
                             return false;
                      }
               }
