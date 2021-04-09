@@ -194,7 +194,7 @@ bool HasSafeState(std::string data[]){
        MAX = GetMax(data);
        ALLOCATION = GetAllocation(data);
        AVAILABLE = GetAvailable(data);
-       NEED = GetNeed(data);
+       NEED = GetNeed();
       
        std::cout << "\n--- Starting Allocated Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
