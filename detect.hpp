@@ -166,8 +166,11 @@ bool HasSafeState(){
        for(int i = 0; i < PROCESSES; i++){
               if(!Finished[i]){
                      int tmp = 0;
-                     while(NEED[i*RESOURCES + tmp] <= Work[tmp] && tmp < RESOURCES){
-                            tmp++;
+                     for(int j = 0; j < RESOURCES; j++){
+                            if(NEED[i*RESOURCES + j] > Work[j]){
+                                   tmp = j;
+                                   break;
+                            }
                      }
                      if(tmp == RESOURCES){
                             for(int j = 0; j < RESOURCES; j++){
