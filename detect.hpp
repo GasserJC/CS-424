@@ -107,7 +107,7 @@ int* GetNeed(){
        return Need;
 }
 
-
+/*
 bool HasSafeState(){
        std::cout << "non-init";
        bool *finish = new bool[PROCESSES];
@@ -136,42 +136,44 @@ bool HasSafeState(){
        return true;
 }
 
-/*
-bool HasSafeState(){
-       std::cout << "non-init";
-       bool *finish = new bool[PROCESSES];
-       bool *work = new bool[RESOURCES];
-       bool safe = false;
+*/
+bool safetyAlgorithm() {
+    bool *finish = new bool[PROCESSES];
+    int *work = new int[RESOURCES];
+    bool safe = false;
 
-       for(int i = 0; i < PROCESSES; i++){finish[i] = false;}
-       for(int i = 0; i < RESOURCES; i++){work[i] = AVAILABLE[i];}
+    for(int i=0;i<PROCESSES;i++) { finish[i] = false; } // Initalizes all values to false
+    for(int i=0;i<RESOURCES;i++) { work[i] = AVAILABLE[i]; } // Initalizes work to be a copy of available
 
-       for(int i = 0; i < PROCESSES; i++){
-              if(finish[i] == false){
-                     int counter;
-                     for(counter = 0; counter < RESOURCES; counter++){
-                            if(NEED[i*RESOURCES + counter] > work[counter]){
-                                   break;
-                            }
-                     }
-                     if(counter == RESOURCES){
-                            for(int j=0; j<RESOURCES;j++){
-                                   work[j] += ALLOCATION[i*RESOURCES + j];
-                            }
-                            finish[i] = true;
-                            i =- 1;
-                     }
-              }
-       }
-       int counter = 0;
-       for(counter = 0; counter < PROCESSES; counter++){
-              if(finish[counter] == false){break;}
-       }
-       if(counter == PROCESSES) {safe = true;}
+    // Checks to see if processes needs can be achieved without deadlock
+    for (int i=0;i<PROCESSES;i++) {
+        if(finish[i] == false) {
+            int counter;
+            for(counter = 0; counter < RESOURCES; counter++) {
+                if(NEED[i*RESOURCES + counter] > work[counter]) {
+                    break;
+                }
+            }
+            if(counter == RESOURCES) {
+                for(int j=0;j<RESOURCES;j++) {
+                    work[j] += ALLOCATION[i*RESOURCES + j];
+                }
+                finish[i] = true;
+                i = -1;
+            }
+        }
+    }
 
-       delete[] finish;
-       delete[] work;
-       return safe;
+    int counter = 0;
+    for(counter=0;counter<PROCESSES;counter++) {
+        if(finish[counter] == false) { break; }
+    }
+    if(counter == PROCESSES) { safe = true; } // Means the needs of the processes were met
+
+    // Clean up dynamically allocated arrays and return safe
+    delete[] finish;
+    delete[] work;
+    return safe;
 }
 
 
