@@ -78,9 +78,12 @@ int* GetMax(std::string data[]){
               std::cout << std::endl << tmp[0] << "_" <<tmp[1] <<"_" << tmp[2]<< std::endl ;
               for(int j = 0; j < RESOURCES; j++){
                      if(i == 4){
-                            std::cout << std::endl << tmp[0] << "_" <<tmp[1] <<"_" << tmp[2]<< std::endl ;
+                            std::cout << std::endl << tmp[0] << "_" <<tmp[1] <<"_" << tmp[2]<< std::endl;
                      }
                      Max[i*PROCESSES + j] = tmp[j];
+              }
+              if(i == 4){
+                     std::cout << std::endl <<  Max[12]  << "_" << Max[13]  <<"_" <<  Max[14] << std::endl;
               }
        }
        std::cout << "\n--- MAX Array ---\n";
