@@ -109,6 +109,34 @@ int* GetNeed(){
 
 
 bool HasSafeState(){
+       bool *finish = new bool[PROCESSES];
+       bool *work = new bool[RESOURCES];
+       bool safe = false;
+
+       for(int i = 0; i < PROCESSES; i++){finish[i] = false;}
+       for(int i = 0; i < RESOURCES; i++){work[i] = AVAILABLE[i];}
+
+       for(int i = 0; i < PROCESSES; i++){
+              if(finish[i] == false){
+                     for(int j = 0; j < RESOURCES; j++){
+                            if(NEED[i*RESOURCES + j] <= work[i]){
+                                   work[i] += ALLOCATION[i*RESOURCES + j];
+                                   finish[i] = true;
+                                   i = 0;
+                            }
+                     }
+              }
+       }
+       for(int i =0; i < PROCESSES; i++){
+              if(!finish[i]){
+                     return false
+              }
+       }
+       return true;
+}
+
+/*
+bool HasSafeState(){
        std::cout << "non-init";
        bool *finish = new bool[PROCESSES];
        bool *work = new bool[RESOURCES];
@@ -125,7 +153,7 @@ bool HasSafeState(){
                                    break;
                             }
                      }
-                     if(counter == (RESOURCES-1)){
+                     if(counter == RESOURCES){
                             for(int j=0; j<RESOURCES;j++){
                                    work[j] += ALLOCATION[i*RESOURCES + j];
                             }
@@ -146,7 +174,7 @@ bool HasSafeState(){
 }
 
 
-/*
+
 bool HasSafeState(){
        bool * Finished = new bool[PROCESSES];
        int * Work = new int[RESOURCES];
