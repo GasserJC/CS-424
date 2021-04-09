@@ -109,7 +109,7 @@ int* GetNeed(){
        return Need;
 }
 
-/*
+
 bool HasSafeState(){
        bool *finish = new bool[PROCESSES];
        bool *work = new bool[RESOURCES];
@@ -122,13 +122,31 @@ bool HasSafeState(){
               if(finish[i] == false){
                      int counter;
                      for(counter = 0; counter < RESOURCES; counter++){
-                            if(NEED[i][COU])
+                            if(NEED[i*RESOURCES + counter] > work[counter]){
+                                   break;
+                            }
+                     }
+                     if(counter == RESOURCES){
+                            for(int j=0; j<RESOURCES;j++){
+                                   work[j] += ALLOCATION[i*RESOURCES + j];
+                            }
+                            finish[i] = true;
+                            i =- 1;
                      }
               }
        }
+       int counter = 0;
+       for(counter = 0; counter < PROCESSES; counter++){
+              if(finish[counter] == false){break;}
+       }
+       if(counter == PROCESSES) {safe = true;}
+
+       delete[] finish;
+       delete[] work;
+       return safe;
 
 }
-*/
+
 
 
 bool HasSafeState(){
