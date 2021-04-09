@@ -234,6 +234,16 @@ bool HasSafeState(std::string data[]){
        }
        std::cout << std::endl;
 
+       std::cout << "\n--- Starting Need Array ---\n";
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){      
+                     std::cout << NEED[p*RESOURCES + R] << "     ";
+              }
+              std::cout << std::endl;
+       }
+       std::cout << std::endl;
+
+
        //Perform Check
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){
