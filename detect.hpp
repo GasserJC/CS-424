@@ -59,7 +59,7 @@ int* GetAllocation(std::string data[]){
        //init allocation
        int* tmp;
        for(int i = 0; i < PROCESSES; i++){
-              tmp = GetNum(i+6, data);
+              tmp = GetNum(i+6+PROCESSES, data);
               for(int j = 0; j < RESOURCES; j++){
                      Allocation[i*RESOURCES + j] = tmp[j];
               }
