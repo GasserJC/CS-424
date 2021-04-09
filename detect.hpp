@@ -109,6 +109,7 @@ int* GetNeed(){
 
 
 bool HasSafeState(){
+       std::cout << "non-init";
        bool *finish = new bool[PROCESSES];
        bool *work = new bool[RESOURCES];
        bool safe = false;
