@@ -173,20 +173,25 @@ bool HasSafeState(std::string data[]){
        AVAILABLE = GetAvailable(data);
        NEED = GetNeed(data);
       
-       std::cout << "\n--- Allocated Array ---\n";
+       std::cout << "\n--- Starting Allocated Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){      
                      std::cout << ALLOCATION[p*RESOURCES + R] << "     ";
               }
               std::cout << std::endl;
        }
-       std::cout << "\n--- MAX Array ---\n";
+       std::cout << "\n--- Starting MAX Array ---\n";
        for(int p = 0; p < PROCESSES; p++){
               for(int R = 0; R < RESOURCES; R++){      
                      std::cout << MAX[p*RESOURCES + R] << "     ";
               }
               std::cout << std::endl;
        }
+       std::cout << "\n--- Starting Available Array ---\n";
+       for(int R = 0; R < RESOURCES; R++){      
+              std::cout << AVAILABLE[R] << "     ";
+       }
+       std::cout << std::endl;
 
        //Perform Check
        for(int p = 0; p < PROCESSES; p++){
