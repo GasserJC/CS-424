@@ -77,13 +77,21 @@ int* GetMax(std::string data[]){
        int * Max = new int [PROCESSES*RESOURCES];
        std::cout << std::endl;
        //init max
-       int* tmp = GetNum(5, data);
+       int* tmp;
        for(int i = 0; i < PROCESSES; i++){
               tmp = GetNum(i+5, data);
               for(int j = 0; j < RESOURCES; j++){
                      Max[i*RESOURCES + j] = tmp[j];
               }
        }
+       std::cout << "\n--- MAX Array ---\n";
+       for(int p = 0; p < PROCESSES; p++){
+              for(int R = 0; R < RESOURCES; R++){      
+                     std::cout << Max[p*PROCESSES + R] << "     ";
+              }
+              std::cout << std::endl;
+       }
+
        delete[] tmp;
        return Max;
 }
