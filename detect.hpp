@@ -97,7 +97,7 @@ int GetProcesses(std::string data[]){
        return (int)data[1][0] - 48;
 }
 
-int* GetNeed(std::string data[]){
+int* GetNeed(){
        int * Need = new int[PROCESSES*RESOURCES];
 
        for(int i = 0; i < PROCESSES; i++){
@@ -108,17 +108,31 @@ int* GetNeed(std::string data[]){
 
        return Need;
 }
+
 /*
 bool HasSafeState(){
        bool *finish = new bool[PROCESSES];
        bool *work = new bool[RESOURCES];
        bool safe = false;
 
-       for(int i)
-}
+       for(int i = 0; i < PROCESSES; i++){finish[i] = false;}
+       for(int i = 0; i < RESOURCES; i++){work[i] = AVAILABLE[i];}
 
+       for(int i = 0; i < PROCESSES; i++){
+              if(finish[i] == false){
+                     int counter;
+                     for(counter = 0; counter < RESOURCES; counter++){
+                            if(NEED[i][COU])
+                     }
+              }
+       }
+
+}
 */
+
+
 bool HasSafeState(){
+       NEED = GetNeed();
        bool * Finished = new bool[PROCESSES];
        int * Work = new int[RESOURCES];
        bool Safe = false;
