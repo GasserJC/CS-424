@@ -148,7 +148,7 @@ bool HasSafeState(){
 }
 
 
-
+/*
 bool HasSafeState(){
        NEED = GetNeed();
        bool * Finished = new bool[PROCESSES];
@@ -191,6 +191,9 @@ bool HasSafeState(){
        delete[] Work;
        return Safe;
 }
+
+*/
+
 
 /*
 func HasSafeState():
