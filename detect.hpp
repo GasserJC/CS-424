@@ -70,44 +70,22 @@ int* GetAllocation(std::string data[]){
 
 int* GetMax(std::string data[]){
        int * Max = new int [PROCESSES*RESOURCES];
-       std::cout << std::endl;
        //init max
        int* tmp;
        for(int i = 0; i < PROCESSES; i++){
               tmp = GetNum(i+5, data);
-              std::cout << std::endl << tmp[0] << "_" <<tmp[1] <<"_" << tmp[2]<< std::endl ;
               for(int j = 0; j < RESOURCES; j++){
-                     if(i == 4){
-                            std::cout << std::endl << tmp[0] << "_" <<tmp[1] <<"_" << tmp[2]<< std::endl;
-                     }
+
                      Max[i*RESOURCES + j] = tmp[j];
               }
-              if(i == 4){
-                     std::cout << std::endl<< "--------> " <<  Max[9]  << "_" << Max[10]  <<"_" <<  Max[11] << std::endl;
-              }
-       }
-       std::cout << "\n--- MAX Array ---\n";
-        for(int i = 0; i < PROCESSES; i++){
-              tmp = GetNum(i+5, data);
-              for(int j = 0; j < RESOURCES; j++){
-                     std::cout << Max[i*RESOURCES + j] << "     ";
-              }
-              std::cout << std::endl;
-       }
 
+       }
        return Max;
 }
 
 int* GetAvailable(std::string data[]){
-
        int * Available = new int [RESOURCES];
-
        Available = GetNum(3,data);
-       std::cout << std::endl;
-       for(int i = 0; i < 3; i++){
-              std::cout << " " << Available[i];
-       }
-
        return Available;
 }
 
@@ -193,7 +171,6 @@ bool HasSafeState(std::string data[]){
        MAX = GetMax(data);
        ALLOCATION = GetAllocation(data);
        AVAILABLE = GetAvailable(data);
-       std::cout << "=======>>>>>" << AVAILABLE[2] << "<<<<======";
        NEED = GetNeed(data);
       
        std::cout << "\n--- Allocated Array ---\n";
