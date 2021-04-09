@@ -18,6 +18,7 @@ int* GetNum(int line, std::string data[]){
        std::cout << std::endl << "stream ("<< Stream.str() << ")"<< std::endl;
        while(Stream >> Word){
               tmp.push_back(Word);
+               std::cout <<" " << Word<<" ";
        }
        int * RtrArr = new int[tmp.size()];
        for(int i = 0; i < tmp.size() ; i++){
