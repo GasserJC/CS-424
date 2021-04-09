@@ -129,7 +129,7 @@ bool HasSafeState(){
        }
        for(int i =0; i < PROCESSES; i++){
               if(!finish[i]){
-                     return false
+                     return false;
               }
        }
        return true;
