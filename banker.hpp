@@ -56,7 +56,7 @@ void Bankers(int ID){
     for(int i = 0; i < 6; i++){
         Process[i] = int(RANDOM() * PROCESSES)%PROCESSES;
         Resource[i] = int(RANDOM() * RESOURCES)%RESOURCES;
-        Unit[i] = int(RANDOM() * MAX[Process[i]*PROCESSES + Resource[i]]) + 1;
+        Unit[i] = int(RANDOM() * MAX[Process[i]*RESOURCES + Resource[i]]) + 1;
     }
 
     //Alternate Requests and Releases
