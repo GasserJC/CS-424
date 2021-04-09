@@ -107,121 +107,29 @@ int* GetNeed(){
        return Need;
 }
 
-/*
-bool HasSafeState(){
-       std::cout << "non-init";
-       bool *finish = new bool[PROCESSES];
-       bool *work = new bool[RESOURCES];
-       bool safe = false;
-
-       for(int i = 0; i < PROCESSES; i++){finish[i] = false;}
-       for(int i = 0; i < RESOURCES; i++){work[i] = AVAILABLE[i];}
-
-       for(int i = 0; i < PROCESSES; i++){
-              if(finish[i] == false){
-                     for(int j = 0; j < RESOURCES; j++){
-                            if(NEED[i*RESOURCES + j] <= work[i]){
-                                   work[i] += ALLOCATION[i*RESOURCES + j];
-                                   finish[i] = true;
-                                   i = 0;
-                            }
-                     }
-              }
-       }
-       for(int i =0; i < PROCESSES; i++){
-              if(!finish[i]){
-                     return false;
-              }
-       }
-       return true;
-}
-
-*/
 bool HasSafeState() {
-    bool *finish = new bool[PROCESSES];
-    int *work = new int[RESOURCES];
-    bool safe = false;
 
-    for(int i=0;i<PROCESSES;i++) { finish[i] = false; } // Initalizes all values to false
-    for(int i=0;i<RESOURCES;i++) { work[i] = AVAILABLE[i]; } // Initalizes work to be a copy of available
+bool safe = false;bool *finish = new bool[PROCESSES];int *work = new int[RESOURCES];
 
-    // Checks to see if processes needs can be achieved without deadlock
-    for (int i=0;i<PROCESSES;i++) {
-        if(finish[i] == false) {
-            int counter;
-            for(counter = 0; counter < RESOURCES; counter++) {
-                if(NEED[i*RESOURCES + counter] > work[counter]) {
-                    break;
-                }
-            }
-            if(counter == RESOURCES) {
-                for(int j=0;j<RESOURCES;j++) {
-                    work[j] += ALLOCATION[i*RESOURCES + j];
-                }
-                finish[i] = true;
-                i = -1;
-            }
-        }
-    }
+for(int i=0;i<PROCESSES;i++) { finish[i] = false; } 
 
-    int counter = 0;
-    for(counter=0;counter<PROCESSES;counter++) {
-        if(finish[counter] == false) { break; }
-    }
-    if(counter == PROCESSES) { safe = true; } // Means the needs of the processes were met
+for(int i=0;i<RESOURCES;i++) { work[i] = AVAILABLE[i]; }
 
-    // Clean up dynamically allocated arrays and return safe
-    delete[] finish;
-    delete[] work;
-    return safe;
+for (int i=0;i<PROCESSES;i++) { if(finish[i] == false) { int tmp; for(tmp = 0; tmp < RESOURCES; tmp++) { if(NEED[i*RESOURCES + tmp] > work[tmp]) { break; } } if(tmp == RESOURCES) { for(int j=0;j<RESOURCES;j++) { work[j] += ALLOCATION[i*RESOURCES + j]; } finish[i] = true; i--; } }}
+
+int tmp = 0;
+
+for(tmp=0;tmp<PROCESSES;tmp++) { if(finish[tmp] == false) {break;}}
+
+if(tmp == PROCESSES) { safe = true; }
+
+delete[] finish;
+
+delete[] work;
+
+return safe;
+
 }
-
-
-/*
-bool HasSafeState(){
-       bool * Finished = new bool[PROCESSES];
-       int * Work = new int[RESOURCES];
-       bool Safe = false;
-       
-       for(int i = 0; i < PROCESSES; i++){
-              Finished[i] = false;
-       }
-       for(int i = 0; i < RESOURCES; i++){
-              Work[i] = AVAILABLE[i];
-       }
-
-       //static deadlock check
-       for(int i = 0; i < PROCESSES; i++){
-              if(!Finished[i]){
-                     int tmp = 0;
-                     while(NEED[i*RESOURCES + tmp] <= Work[tmp] && tmp < RESOURCES){
-                            tmp++;
-                     }
-                     if(tmp == RESOURCES){
-                            for(int j = 0; j < RESOURCES; j++){
-                                   Work[j] += ALLOCATION[i*RESOURCES + j];
-                            }
-                            Finished[i] = true;
-                            i--;
-                     }
-              }
-       }
-
-       int tmp = 0;
-       while(Finished[tmp] != false && tmp < PROCESSES){
-              tmp++;
-       }
-       if(PROCESSES == tmp){
-              Safe = true;
-       }
-
-       delete[] Finished;
-       delete[] Work;
-       return Safe;
-}
-
-*/
-
 
 /*
 func HasSafeState():
@@ -235,7 +143,6 @@ func HasSafeState():
                   return false               
    return true
 */
-
 
 bool HasSafeState(std::string data[]){
        RESOURCES = (int)data[0][0] - 48;
