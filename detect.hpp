@@ -79,10 +79,10 @@ int* GetMax(std::string data[]){
        //init max
        int* tmp = GetNum(5, data);
        for(int i = 0; i < PROCESSES; i++){
+              tmp = GetNum(i+5, data);
               for(int j = 0; j < RESOURCES; j++){
                      Max[i*RESOURCES + j] = tmp[j];
               }
-              tmp = GetNum(i+5, data);
        }
        delete[] tmp;
        return Max;
