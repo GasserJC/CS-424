@@ -79,6 +79,7 @@ bool PageReplacement(){
         return false;
     }
     */
+   return true;
 }
 
 int main(){
