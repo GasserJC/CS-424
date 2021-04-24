@@ -138,8 +138,12 @@ void OPT(int arr[], int FC){
     for(int i = 0; i < REF_SIZE; i++){ 
         if(!HasRefChar(Memory, arr[i], FC)){     // If Page Fault
             Faults++;                            // Add to Faults
-            int StaleIdx = FindStale(Memory, arr, FC);
-            Memory[StaleIdx] = arr[i];
+            if(HasRefChar(Memory, -1, FC)){
+                Memory[FindIndexOfValue(Memory, FC, -1)] = arr[i];
+            } else {
+                int StaleIdx = FindStale(Memory, arr, FC);
+                Memory[StaleIdx] = arr[i];
+            }
         } 
         std::cout << "\n" << arr[i] << "\n";
         std::cout << "Memory: ";
