@@ -64,6 +64,7 @@ int FindStale(int mem[], int arr[], int fc){
         if(count + 1 == fc){ //Case : all things in memory are in the ref still
             for(int j = 0; j < fc; j++){
                 if(tmp_mem[j] != -1){
+                    std::cout << "tmpmem a:";
                     PrintArr(tmp_mem, fc);
                     return j;
                 }
@@ -73,11 +74,12 @@ int FindStale(int mem[], int arr[], int fc){
 
     for(int j = 0; j < fc; j++){ // Case: there exist items in mem that are no longer in ref
         if(tmp_mem[j] != -1){
+            std::cout << "tmpmem b:";
             PrintArr(tmp_mem, fc);
             return j;
         }
     }
-
+    std::cout << "tmpmem c:";
     PrintArr(tmp_mem, fc);
     return 0; //Case: none of the mem items are in ref again
 }
