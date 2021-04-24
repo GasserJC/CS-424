@@ -4,11 +4,6 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
-int main(){
-    while(PageReplacement()){}
-    return 1;
-}
-
 int GetPageCount(){
 
     int tmp_page_frames;
@@ -77,4 +72,9 @@ bool PageReplacement(){
     } else {
         return false;
     }
+}
+
+int main(){
+    while(PageReplacement()){}
+    return 1;
 }
