@@ -5,7 +5,7 @@ static const int LEFT = 1;
 static const int RIGHT = 6;
 static const int REF_SIZE = 20;
 static const int REF_AMP = 10;
-/*
+
 bool HasRefChar(int Mem[], int Char, int FC){
     for(int i = 0; i < FC; i++){
         if(Mem[i] == Char){
@@ -95,7 +95,7 @@ void FIFO(int arr[], int FC){
     std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
 
 }
-
+/*
 //Least Recently Used Algorithm
 void LRU(int arr[], int FC){
     

@@ -28,13 +28,13 @@ int * GetRandRef(){
 }
 
 void PrintArr(int arr[], int n){
-    std::cout << "[ ";
+    std::cout << "\n[ ";
     for(int i = 0; i < n; i++){
         std::cout << arr[i];
         if(i < n - 1){
             std::cout << " , ";
         } else {
-            std::cout << " ]";
+            std::cout << " ]\n";
         }
     }
 }
@@ -56,7 +56,7 @@ bool PageReplacement(){
     /*
     //Display page faults using FIFO
     FIFO(ReferenceString, FrameCount);
-
+    
     //Display page faults using LRU
     LRU(ReferenceString, FrameCount);
 
