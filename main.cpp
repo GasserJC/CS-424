@@ -19,7 +19,7 @@ int GetPageCount(){
 }
 
 int * GetRandRef(){
-    int tmp [REF_SIZE];
+    int* tmp = new int[REF_SIZE];
     srand(time(NULL));
     for(int i = 0; i < REF_SIZE; i++){
         tmp[i] = rand() % REF_AMP;
