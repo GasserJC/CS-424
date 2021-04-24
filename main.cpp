@@ -45,7 +45,7 @@ bool PageReplacement(){
     //Set Page Frame Count
     while(true){
         FrameCount = GetPageCount();
-        if (FrameCount < 0) { break; }
+        if (FrameCount > 0) { break; }
     }
 
     //generate string with page numbers
