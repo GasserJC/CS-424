@@ -11,7 +11,7 @@ int GetPageCount(){
     std::cin >> tmp_page_frames;
 
     if(tmp_page_frames < LEFT || tmp_page_frames > RIGHT){
-        tmp_page_frames = 0;
+        tmp_page_frames = -1;
     }
 
     return tmp_page_frames;
@@ -45,7 +45,7 @@ bool PageReplacement(){
     //Set Page Frame Count
     while(true){
         FrameCount = GetPageCount();
-        if (FrameCount) { break; }
+        if (FrameCount < 0) { break; }
     }
 
     //generate string with page numbers
