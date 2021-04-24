@@ -90,8 +90,8 @@ void FIFO(int arr[], int FC){
 
     }
 
-    delete[] Memory;
-    delete[] Age;
+    //delete[] Memory;
+    //delete[] Age;
     std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
 
 }
