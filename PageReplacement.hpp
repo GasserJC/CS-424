@@ -90,12 +90,10 @@ void FIFO(int arr[], int FC){
 
     }
 
-    //delete[] Memory;
-    //delete[] Age;
     std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
 
 }
-/*
+
 //Least Recently Used Algorithm
 void LRU(int arr[], int FC){
     
@@ -117,11 +115,9 @@ void LRU(int arr[], int FC){
         }
     }
 
-    delete[] Memory;
-    delete[] Age;
     std::cout << "LRU had " << Faults << " many Page Faults" << std::endl;
 }
-
+/*
 //Optimal Algorithm
 void OPT(int arr[], int FC){
     

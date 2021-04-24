@@ -56,14 +56,12 @@ bool PageReplacement(){
     
     //Display page faults using FIFO
     FIFO(ReferenceString, FrameCount);
-    /*
+    
     //Display page faults using LRU
     LRU(ReferenceString, FrameCount);
-
+    /*
     //Display page faults using OPT
     OPT(ReferenceString, FrameCount);
-
-    delete [] ReferenceString;
 
     std::string tmp = "";
     std::cout <<std::endl << "Do you want do another iteration of the program? (y/n): ";
