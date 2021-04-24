@@ -48,6 +48,8 @@ bool PageReplacement(){
         if (FrameCount > 0) { break; }
     }
 
+    std::cout << "made it here";
+
     //generate string with page numbers
     int * ReferenceString = GetRandRef();
     PrintArr(ReferenceString, REF_SIZE);
