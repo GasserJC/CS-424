@@ -49,11 +49,11 @@ bool PageReplacement(){
     }
 
     std::cout << "made it here";
-    /*
+    
     //generate string with page numbers
     int * ReferenceString = GetRandRef();
     PrintArr(ReferenceString, REF_SIZE);
-
+    /*
     //Display page faults using FIFO
     FIFO(ReferenceString, FrameCount);
 
