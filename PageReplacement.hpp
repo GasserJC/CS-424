@@ -6,7 +6,7 @@ static const int RIGHT = 6;
 static const int REF_SIZE = 20;
 static const int REF_AMP = 10;
 
-bool HasRefChar(int * Mem, int Char, int FC){
+bool HasRefChar(int Mem[], int Char, int FC){
     for(int i = 0; i < FC; i++){
         if(Mem[i] == Char){
             return true;
@@ -15,7 +15,7 @@ bool HasRefChar(int * Mem, int Char, int FC){
     return false;
 }
 
-int FindOldest(int * Age, int FC){
+int FindOldest(int Age[], int FC){
     int min = REF_SIZE + 1;
     int idx = 0;
     for(int i = 0; i < FC; i++){
@@ -27,7 +27,7 @@ int FindOldest(int * Age, int FC){
     return idx;
 }
 
-int FindIndexOfValue(int* arr, int n, int val){
+int FindIndexOfValue(int arr[], int n, int val){
     for(int i = 0; i < n; i++){
         if(arr[i] == val){
             return i;
@@ -36,32 +36,7 @@ int FindIndexOfValue(int* arr, int n, int val){
     return -1;
 }
 
-//First In First Out Algorithm
-void FIFO(int * arr, int FC){
-
-    int Faults = 0;
-    int * Memory = new int[FC]; 
-    int * Age = new int [FC];
-    for(int i = 0; i < FC; i++){ Memory[i] = -1; Age[i] = -1;}
-
-    for(int i = 0; i < REF_SIZE; i++){ 
-
-        if(!HasRefChar(Memory, arr[i], FC)){        // If Page Fault
-            Faults++;                           // Add to Faults
-            int First = FindOldest(Age, FC);   // Find the first in
-            Memory[i] = arr[i];                 // Re-assign first in
-            Age[i] = i;                         // Update age
-        }
-
-    }
-
-    delete[] Memory;
-    delete[] Age;
-    std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
-
-}
-
-int FindStale(int * mem, int * arr, int fc){
+int FindStale(int mem[], int arr[], int fc){
     int * tmp_mem = new int[fc];
     int count = 0;
     for(int i = 0; i < fc; i++) {tmp_mem[i] = mem[i];} 
@@ -95,8 +70,34 @@ int FindStale(int * mem, int * arr, int fc){
     return 0; //Case: none of the mem items are in ref again
 }
 
+
+//First In First Out Algorithm
+void FIFO(int arr[], int FC){
+
+    int Faults = 0;
+    int * Memory = new int[FC]; 
+    int * Age = new int [FC];
+    for(int i = 0; i < FC; i++){ Memory[i] = -1; Age[i] = -1;}
+
+    for(int i = 0; i < REF_SIZE; i++){ 
+
+        if(!HasRefChar(Memory, arr[i], FC)){        // If Page Fault
+            Faults++;                           // Add to Faults
+            int First = FindOldest(Age, FC);   // Find the first in
+            Memory[i] = arr[i];                 // Re-assign first in
+            Age[i] = i;                         // Update age
+        }
+
+    }
+
+    delete[] Memory;
+    delete[] Age;
+    std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
+
+}
+
 //Least Recently Used Algorithm
-void LRU(int * arr, int FC){
+void LRU(int arr[], int FC){
     
     int Faults = 0;
     int * Memory = new int[FC];
@@ -122,7 +123,7 @@ void LRU(int * arr, int FC){
 }
 
 //Optimal Algorithm
-void OPT(int * arr, int FC){
+void OPT(int arr[], int FC){
     
     int Faults = 0;
     int * Memory = new int[FC];
