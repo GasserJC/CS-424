@@ -70,6 +70,6 @@ bool PageReplacement(){
 
 int main(){
     while(PageReplacement()){}
-    std::cout << "exiting..."
+    std::cout << "exiting...";
     return 1;
 }
