@@ -5,7 +5,7 @@ static const int LEFT = 1;
 static const int RIGHT = 6;
 static const int REF_SIZE = 20;
 static const int REF_AMP = 10;
-
+/*
 bool HasRefChar(int Mem[], int Char, int FC){
     for(int i = 0; i < FC; i++){
         if(Mem[i] == Char){
@@ -140,5 +140,5 @@ void OPT(int arr[], int FC){
     delete[] Memory;
     std::cout << "Optimal had " << Faults << " many Page Faults" << std::endl;
 }
-
+*/
 #endif

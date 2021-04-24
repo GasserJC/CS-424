@@ -51,7 +51,7 @@ bool PageReplacement(){
         FrameCount = GetPageCount();
         if (FrameCount > 0) { break; }
     }
-
+    /*
     std::cout << "made it here";
 
     //generate string with page numbers
@@ -78,6 +78,7 @@ bool PageReplacement(){
     } else {
         return false;
     }
+    */
 }
 
 int main(){
