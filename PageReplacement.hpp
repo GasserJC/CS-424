@@ -3,7 +3,7 @@
 
 static const int LEFT = 1;
 static const int RIGHT = 6;
-static const int REF_SIZE = 18;
+static const int REF_SIZE = 20;
 static const int REF_AMP = 10;
 
 void PrintArr(int arr[], int n){
