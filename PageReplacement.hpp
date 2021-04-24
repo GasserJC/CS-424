@@ -3,8 +3,20 @@
 
 static const int LEFT = 1;
 static const int RIGHT = 6;
-static const int REF_SIZE = 20;
+static const int REF_SIZE = 18;
 static const int REF_AMP = 10;
+
+void PrintArr(int arr[], int n){
+    std::cout << " [ ";
+    for(int i = 0; i < n; i++){
+        std::cout << arr[i];
+        if(i < n - 1){
+            std::cout << " , ";
+        } else {
+            std::cout << " ]\n";
+        }
+    }
+}
 
 bool HasRefChar(int Mem[], int Char, int FC){
     for(int i = 0; i < FC; i++){
@@ -46,13 +58,14 @@ int FindStale(int mem[], int arr[], int fc){
             if(tmp_mem[j] == arr[i]){
                 tmp_mem[j] == -1;
                 count++;
+                PrintArr(tmp_mem, fc);
                 break;
             }
         }
         if(count + 1 == fc){ //Case : all things in memory are in the ref still
             for(int j = 0; j < fc; j++){
                 if(tmp_mem[j] != -1){
-                    delete[] tmp_mem;
+                    PrintArr(tmp_mem, fc);
                     return j;
                 }
             }
@@ -61,25 +74,13 @@ int FindStale(int mem[], int arr[], int fc){
 
     for(int j = 0; j < fc; j++){ // Case: there exist items in mem that are no longer in ref
         if(tmp_mem[j] != -1){
-            delete[] tmp_mem;
+            PrintArr(tmp_mem, fc);
             return j;
         }
     }
 
-    delete[] tmp_mem;
+    PrintArr(tmp_mem, fc);
     return 0; //Case: none of the mem items are in ref again
-}
-
-void PrintArr(int arr[], int n){
-    std::cout << " [ ";
-    for(int i = 0; i < n; i++){
-        std::cout << arr[i];
-        if(i < n - 1){
-            std::cout << " , ";
-        } else {
-            std::cout << " ]\n";
-        }
-    }
 }
 
 //First In First Out Algorithm
@@ -98,12 +99,6 @@ void FIFO(int arr[], int FC){
             Memory[First] = arr[i];                 // Re-assign first in
             Age[First] = i;                         // Update age
         }
-
-        std::cout << "\n" << arr[i] << "\n";
-        std::cout << "Memory: ";
-        PrintArr(Memory, FC);
-        std::cout << "Age: ";
-        PrintArr(Age, FC);
     }
 
     std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
@@ -129,11 +124,6 @@ void LRU(int arr[], int FC){
             int idx = FindIndexOfValue(Memory, FC, arr[i]);
             Age[idx] = i;                          //updating this changes the algo from fifo to lru
         }
-        std::cout << "\n" << arr[i] << "\n";
-        std::cout << "Memory: ";
-        PrintArr(Memory, FC);
-        std::cout << "Age: ";
-        PrintArr(Age, FC);
     }
 
     std::cout << "LRU had " << Faults << " many Page Faults" << std::endl;
@@ -152,6 +142,9 @@ void OPT(int arr[], int FC){
             int StaleIdx = FindStale(Memory, arr, FC);
             Memory[StaleIdx] = arr[i];
         } 
+        std::cout << "\n" << arr[i] << "\n";
+        std::cout << "Memory: ";
+        PrintArr(Memory, FC);
     }
 
     std::cout << "Optimal had " << Faults << " many Page Faults" << std::endl;
