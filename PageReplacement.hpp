@@ -48,12 +48,12 @@ int FindIndexOfValue(int arr[], int n, int val){
     return -1;
 }
 
-int FindStale(int mem[], int arr[], int fc){
+int FindStale(int mem[], int arr[], int fc, int t){
     int * tmp_mem = new int[fc];
     int count = 0;
     for(int i = 0; i < fc; i++) {tmp_mem[i] = mem[i];} 
 
-    for(int i = 0; i < REF_SIZE; i++){
+    for(int i = t; i < REF_SIZE; i++){
         for(int j = 0; j < fc; j++){
             if(tmp_mem[j] == arr[i]){
                 tmp_mem[j] = -1;
@@ -143,7 +143,7 @@ void OPT(int arr[], int FC){
             if(HasRefChar(Memory, -1, FC)){
                 Memory[FindIndexOfValue(Memory, FC, -1)] = arr[i];
             } else {
-                int StaleIdx = FindStale(Memory, arr, FC);
+                int StaleIdx = FindStale(Memory, arr, FC, i);
                 Memory[StaleIdx] = arr[i];
             }
         } 
