@@ -71,7 +71,7 @@ int FindStale(int mem[], int arr[], int fc){
 }
 
 void PrintArr(int arr[], int n){
-    std::cout << "\n[ ";
+    std::cout << " [ ";
     for(int i = 0; i < n; i++){
         std::cout << arr[i];
         if(i < n - 1){
@@ -99,8 +99,10 @@ void FIFO(int arr[], int FC){
             Age[First] = i;                         // Update age
         }
 
-        std::cout << "Memory:";
+        std::cout << "Memory: ";
         PrintArr(Memory, FC);
+        std::cout << "Age: ";
+        PrintArr(Age, FC);
     }
 
     std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
