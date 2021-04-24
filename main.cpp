@@ -51,7 +51,7 @@ bool PageReplacement(){
     
     //Display page faults using LRU
     LRU(ReferenceString, FrameCount);
-    /*
+    
     //Display page faults using OPT
     OPT(ReferenceString, FrameCount);
 
@@ -64,8 +64,8 @@ bool PageReplacement(){
     } else {
         return false;
     }
-    */
-   return true;
+   
+    return true;
 }
 
 int main(){
