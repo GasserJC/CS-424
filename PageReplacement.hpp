@@ -84,8 +84,8 @@ void FIFO(int arr[], int FC){
         if(!HasRefChar(Memory, arr[i], FC)){        // If Page Fault
             Faults++;                           // Add to Faults
             int First = FindOldest(Age, FC);   // Find the first in
-            Memory[i] = arr[i];                 // Re-assign first in
-            Age[i] = i;                         // Update age
+            Memory[First] = arr[i];                 // Re-assign first in
+            Age[First] = i;                         // Update age
         }
 
     }
@@ -106,8 +106,8 @@ void LRU(int arr[], int FC){
         if(!HasRefChar(Memory, arr[i], FC)){         // If Page Fault
             Faults++;                            // Add to Faults
             int OldestUsed = FindOldest(Age, FC);// Find the last used
-            Memory[i] = arr[i];                  // Re-assign first in
-            Age[i] = i;                          // Update age
+            Memory[OldestUsed] = arr[i];                  // Re-assign first in
+            Age[OldestUsed] = i;                          // Update age
         } 
         else {                                   // If not page fault
             int idx = FindIndexOfValue(Age, FC, Memory[i]);
