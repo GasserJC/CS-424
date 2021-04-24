@@ -32,9 +32,12 @@ bool PageReplacement(){
     int FrameCount = 0;
 
     //Set Page Frame Count
-    while(true){
+    while(FrameCount == 0){
         FrameCount = GetPageCount();
-        if (FrameCount > 0) { break; }
+    }
+
+    if(!(FrameCount <= RIGHT && FrameCount >= LEFT)){
+        FrameCount = LEFT;
     }
 
     std::cout << "made it here";
