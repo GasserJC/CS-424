@@ -27,7 +27,7 @@ int * GetRandRef(){
     return tmp;
 }
 
-void PrintArr(int * arr, int n){
+void PrintArr(int arr[], int n){
     std::cout << "[ ";
     for(int i = 0; i < n; i++){
         std::cout << arr[i];
