@@ -43,8 +43,7 @@ bool PageReplacement(){
     std::cout << "made it here";
     
     //generate string with page numbers
-    //int  ReferenceString = GetRandRef();
-    int ReferenceString [] = { 7,0,1,2,0,3,0,4,2,3,0,3,1,2,0 };
+    int * ReferenceString = GetRandRef();
     PrintArr(ReferenceString, REF_SIZE);
     
     //Display page faults using FIFO
