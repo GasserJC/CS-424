@@ -128,6 +128,10 @@ void LRU(int arr[], int FC){
             int idx = FindIndexOfValue(Age, FC, Memory[i]);
             Age[idx] = i;                          //updating this changes the algo from fifo to lru
         }
+        std::cout << "Memory: ";
+        PrintArr(Memory, FC);
+        std::cout << "Age: ";
+        PrintArr(Age, FC);
     }
 
     std::cout << "LRU had " << Faults << " many Page Faults" << std::endl;
