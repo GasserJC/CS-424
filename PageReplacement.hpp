@@ -64,20 +64,16 @@ int FindStale(int mem[], int arr[], int fc, int t){
         if(count + 1 == fc){ //Case : all things in memory are in the ref still
             for(int j = 0; j < fc; j++){
                 if(tmp_mem[j] != -1){
-                    PrintArr(tmp_mem, fc);
                     return j;
                 }
             }
         }
     }
-
     for(int j = 0; j < fc; j++){ // Case: there exist items in mem that are no longer in ref
         if(tmp_mem[j] != -1){
-            PrintArr(tmp_mem, fc);
             return j;
         }
     }
-    PrintArr(tmp_mem, fc);
     return 0; //Case: none of the mem items are in ref again
 }
 
