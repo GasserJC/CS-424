@@ -125,7 +125,7 @@ void LRU(int arr[], int FC){
             Age[OldestUsed] = i;                          // Update age
         } 
         else {                                   // If not page fault
-            int idx = FindIndexOfValue(Age, FC, Memory[i]);
+            int idx = FindIndexOfValue(Memory, FC, arr[i]);
             Age[idx] = i;                          //updating this changes the algo from fifo to lru
         }
         std::cout << "\n" << arr[i] << "\n";
