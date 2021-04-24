@@ -27,17 +27,6 @@ int * GetRandRef(){
     return tmp;
 }
 
-void PrintArr(int arr[], int n){
-    std::cout << "\n[ ";
-    for(int i = 0; i < n; i++){
-        std::cout << arr[i];
-        if(i < n - 1){
-            std::cout << " , ";
-        } else {
-            std::cout << " ]\n";
-        }
-    }
-}
 
 bool PageReplacement(){
     int FrameCount = 0;

@@ -70,6 +70,17 @@ int FindStale(int mem[], int arr[], int fc){
     return 0; //Case: none of the mem items are in ref again
 }
 
+void PrintArr(int arr[], int n){
+    std::cout << "\n[ ";
+    for(int i = 0; i < n; i++){
+        std::cout << arr[i];
+        if(i < n - 1){
+            std::cout << " , ";
+        } else {
+            std::cout << " ]\n";
+        }
+    }
+}
 
 //First In First Out Algorithm
 void FIFO(int arr[], int FC){
@@ -82,12 +93,14 @@ void FIFO(int arr[], int FC){
     for(int i = 0; i < REF_SIZE; i++){ 
 
         if(!HasRefChar(Memory, arr[i], FC)){        // If Page Fault
-            Faults++;                           // Add to Faults
-            int First = FindOldest(Age, FC);   // Find the first in
+            Faults++;                               // Add to Faults
+            int First = FindOldest(Age, FC);        // Find the first in
             Memory[First] = arr[i];                 // Re-assign first in
             Age[First] = i;                         // Update age
         }
 
+        std::cout << "Memory:";
+        PrintArr(Memory, FC);
     }
 
     std::cout << "FIFO had " << Faults << " many Page Faults" << std::endl;
