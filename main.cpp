@@ -37,7 +37,7 @@ bool PageReplacement(){
     }
 
     if(!(FrameCount <= RIGHT && FrameCount >= LEFT)){
-        FrameCount = LEFT;
+        return false;
     }
 
     std::cout << "made it here";
@@ -70,5 +70,6 @@ bool PageReplacement(){
 
 int main(){
     while(PageReplacement()){}
+    std::cout << "exiting..."
     return 1;
 }
