@@ -99,6 +99,7 @@ void FIFO(int arr[], int FC){
             Age[First] = i;                         // Update age
         }
 
+        std::cout << "\n" << arr[i] << "\n";
         std::cout << "Memory: ";
         PrintArr(Memory, FC);
         std::cout << "Age: ";
