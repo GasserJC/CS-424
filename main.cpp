@@ -10,9 +10,13 @@ int GetPageCount(){
     std::cout << "How many page frames are in the system? ";
     std::cin >> tmp_page_frames;
 
+    std::cout << "made it here1";
+
     if(tmp_page_frames < LEFT || tmp_page_frames > RIGHT){
         tmp_page_frames = -1;
     }
+
+    std::cout << "made it here2";
 
     return tmp_page_frames;
 
