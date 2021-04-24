@@ -53,10 +53,10 @@ bool PageReplacement(){
     //generate string with page numbers
     int * ReferenceString = GetRandRef();
     PrintArr(ReferenceString, REF_SIZE);
-    /*
+    
     //Display page faults using FIFO
     FIFO(ReferenceString, FrameCount);
-    
+    /*
     //Display page faults using LRU
     LRU(ReferenceString, FrameCount);
 
