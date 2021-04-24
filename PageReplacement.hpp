@@ -3,7 +3,7 @@
 
 static const int LEFT = 1;
 static const int RIGHT = 6;
-static const int REF_SIZE = 20;
+static const int REF_SIZE = 15;
 static const int REF_AMP = 10;
 
 bool HasRefChar(int Mem[], int Char, int FC){
