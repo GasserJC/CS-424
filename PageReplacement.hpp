@@ -56,7 +56,7 @@ int FindStale(int mem[], int arr[], int fc){
     for(int i = 0; i < REF_SIZE; i++){
         for(int j = 0; j < fc; j++){
             if(tmp_mem[j] == arr[i]){
-                tmp_mem[j] == -1;
+                tmp_mem[j] = -1;
                 count++;
                 break;
             }
